@@ -1,0 +1,343 @@
+const fs = require('fs');
+const path = require('path');
+
+const enPath = 'c:/Users/mk/Desktop/Omuz TJ/omuz/messages/en.json';
+const ruPath = 'c:/Users/mk/Desktop/Omuz TJ/omuz/messages/ru.json';
+const tjPath = 'c:/Users/mk/Desktop/Omuz TJ/omuz/messages/tj.json';
+
+const en = JSON.parse(fs.readFileSync(enPath, 'utf8'));
+const ru = JSON.parse(fs.readFileSync(ruPath, 'utf8'));
+const tj = JSON.parse(fs.readFileSync(tjPath, 'utf8'));
+
+// Apply automated string replacements mapping to cover gaps in RU and TJ
+
+// Example dictionary additions based on context
+const translations_ru = {
+  "about_page.title": "О компании Omuz",
+  "about_page.subtitle": "Инновационные технологии для будущего",
+  "about_page.story_title": "Наша история",
+  "about_page.story_desc": "Основанная с видением революционизировать технологический ландшафт в Таджикистане, Omuz выросла из дальновидного стартапа в ведущую экосистему программного обеспечения и образования.",
+  "about_page.values_title": "Наши ценности",
+  "about_page.values.innovation": "Инновации",
+  "about_page.values.community": "Партнерство",
+  "about_page.values.quality": "Превосходство",
+
+  "products_crm.title": "Omuz CRM",
+  "products_crm.subtitle": "Лучшая система управления для предприятий",
+  "products_crm.description": "Оптимизируйте работу вашего учебного центра с нашей универсальной системой. От регистрации студентов до финансовой отчетности - Omuz CRM справляется со всем.",
+  "products_crm.cta": "Начать",
+  "products_crm.demo": "Заказать демо",
+  "products_crm.features_title": "Все необходимое для управления центром",
+  "products_crm.features_subtitle": "Мощные инструменты, разработанные специально для образовательных учреждений.",
+  "products_crm.features.analytics.title": "Расширенная аналитика",
+  "products_crm.features.analytics.desc": "Анализ регистраций, доходов и посещаемости в реальном времени.",
+  "products_crm.features.scheduling.title": "Умное расписание",
+  "products_crm.features.scheduling.desc": "Автоматизированное составление расписания занятий и управление аудиториями.",
+  "products_crm.features.payments.title": "Автоматизация финансов",
+  "products_crm.features.payments.desc": "Отслеживайте оплату, создавайте счета и управляйте расходами.",
+  "products_crm.features.students.title": "Студенческий портал",
+  "products_crm.features.students.desc": "Специальный доступ для студентов к оценкам и материалам.",
+  "products_crm.features.mobile.title": "Мобильное приложение",
+  "products_crm.features.mobile.desc": "Управляйте бизнесом на ходу с приложениями iOS и Android.",
+  "products_crm.features.support.title": "Поддержка 24/7",
+  "products_crm.features.support.desc": "Выделенная служба техподдержки, готовая помочь в любое время.",
+  "products_crm.stats.centers": "Образовательных Центров",
+  "products_crm.stats.users": "Активных Пользователей",
+  "products_crm.stats.uptime": "Гарантия Аптайма",
+  "products_crm.faq_title": "Частые вопросы",
+  "products_crm.faq.q1": "Является ли Omuz CRM облачной системой?",
+  "products_crm.faq.a1": "Да, Omuz CRM полностью облачная система, обеспечивающая безопасный доступ из любого места.",
+  "products_crm.faq.q2": "Могу ли я перенести существующие данные?",
+  "products_crm.faq.a2": "Конечно. Мы предлагаем бесплатные услуги по миграции данных.",
+  "products_crm.cta_section.title": "Готовы оптимизировать ваш бизнес?",
+  "products_crm.cta_section.subtitle": "Присоединяйтесь к более чем 50+ образовательным центрам, использующим Omuz CRM.",
+  "products_crm.cta_section.btn": "Начать бесплатно",
+
+  "products_online.title": "Online Omuz",
+  "products_online.subtitle": "Система для обучения и корпоративного тренинга",
+  "products_online.description": "Раскройте свой потенциал с помощью качественных курсов от экспертов отрасли. Изучайте программирование, дизайн, маркетинг и многое другое.",
+  "products_online.cta": "Начать обучение",
+  "products_online.browse": "Просмотр курсов",
+  "products_online.courses_title": "Популярные категории",
+  "products_online.courses_subtitle": "Найдите идеальный курс для повышения навыков.",
+  "products_online.categories.dev": "Разработка",
+  "products_online.categories.design": "Дизайн",
+  "products_online.categories.marketing": "Маркетинг",
+  "products_online.categories.business": "Бизнес",
+  "products_online.benefits_title": "Почему выбирают Online Omuz?",
+  "products_online.benefits.expert.title": "Экспертные инструкторы",
+  "products_online.benefits.expert.desc": "Учитесь у профессионалов, работающих в ведущих IT-компаниях.",
+  "products_online.benefits.certificate.title": "Признанные сертификаты",
+  "products_online.benefits.certificate.desc": "Получайте сертификаты после окончания для подтверждения навыков.",
+  "products_online.benefits.access.title": "Пожизненный доступ",
+  "products_online.benefits.access.desc": "Платите один раз и сохраняйте доступ навсегда.",
+  "products_online.benefits.community.title": "Сообщество учеников",
+  "products_online.benefits.community.desc": "Присоединяйтесь к тысячам учеников на нашем активном форуме.",
+  "products_online.stats.courses": "Видеокурсов",
+  "products_online.stats.instructors": "Опытных Наставников",
+  "products_online.stats.students": "Счастливых Студентов",
+  "products_online.cta_section.title": "Начните ваше обучение",
+  "products_online.cta_section.subtitle": "Получите неограниченный доступ к более чем 100+ курсам.",
+  "products_online.cta_section.btn": "Оформить Pro",
+
+  "hero.slides.0.title": "Инновационные решения для современного бизнеса",
+  "hero.slides.0.subtitle": "Мы предоставляем передовые услуги по разработке ПО и цифровой трансформации.",
+  "hero.slides.0.cta": "Наши услуги",
+  "hero.slides.1.title": "Omuz CRM и Управление",
+  "hero.slides.1.subtitle": "Комплексные системы управления для образовательных и корпоративных учреждений.",
+  "hero.slides.1.cta": "Просмотр продуктов",
+  "hero.slides.2.title": "Система Online Omuz",
+  "hero.slides.2.subtitle": "Лучшая система для доступного и качественного цифрового образования.",
+  "hero.slides.2.cta": "Узнать больше",
+
+  "advantages.title": "Почему стоит сотрудничать с нами",
+  "advantages.method.title": "Гибкая методология (Agile)",
+  "advantages.method.desc": "Мы адаптируемся к вашим потребностям благодаря гибким процессам разработки.",
+  "advantages.mentors.title": "Команда экспертов",
+  "advantages.mentors.desc": "Наша команда состоит из ветеранов индустрии и сертифицированных специалистов.",
+  "advantages.fast.title": "Быстрая доставка",
+  "advantages.fast.desc": "Мы ценим ваше время и гарантируем своевременную сдачу всех проектов.",
+
+  "partners.title": "Нам доверяют лидеры отрасли",
+
+  "courses_section.title": "Ключевые направления экспертизы",
+  "courses_section.filters.all": "Все секторы",
+  "courses_section.filters.frontend": "Разработка",
+  "courses_section.filters.backend": "Инфраструктура",
+  "courses_section.filters.marketing": "Цифровой маркетинг",
+  "courses_section.filters.tme": "Консалтинг",
+  "courses_section.card.lessons": "модулей",
+  "courses_section.card.students": "активных пользователей",
+  "courses_section.card.certificate": "Сертификация",
+  "courses_section.items.frontend_react": "Веб Разработка",
+  "courses_section.items.backend_python": "Облачные решения",
+  "courses_section.items.smm": "Цифровая стратегия",
+  "courses_section.items.graphic_design": "UI/UX Дизайн",
+  "courses_section.items.english": "Корпоративное обучение",
+  "courses_section.items.qa": "Контроль качества",
+
+  "hub.title": "Наша экосистема",
+  "hub.subtitle": "Объединяем технологии, образование и управление бизнесом.",
+  "hub.online.title": "Online Omuz",
+  "hub.online.desc": "Цифровая система для образования и тренингов.",
+  "hub.online.btn": "Изучить",
+  "hub.crm.title": "Omuz CRM",
+  "hub.crm.desc": "Планирование ресурсов предприятия для учебных центров.",
+  "hub.crm.btn": "Изучить",
+
+  "about_section.badge": "Цифровые инновации",
+  "about_section.alt_team": "Сотрудничество команды",
+
+  "features_section.cards.mentors.title": "Инженеры-Эксперты",
+  "features_section.cards.mentors.desc": "Работайте с командой старших разработчиков и специалистов.",
+  "features_section.cards.schedule.title": "Масштабируемые Решения",
+  "features_section.cards.schedule.desc": "Системы, спроектированные для роста вместе с вашими потребностями.",
+  "features_section.cards.career.title": "Стратегический Рост",
+  "features_section.cards.career.desc": "Помогаем компаниям достичь целей цифровой трансформации.",
+  "features_section.cards.community.title": "Партнерская Сеть",
+  "features_section.cards.community.desc": "Доступ к широкой сети отраслевых партнеров и ресурсов.",
+
+  "auth.login_title": "С возвращением",
+  "auth.login_subtitle": "Введите учетные данные для доступа",
+  "auth.email_label": "Email",
+  "auth.password_label": "Пароль",
+  "auth.login_btn": "Войти",
+  "auth.forgot_password": "Забыли пароль?",
+  "auth.no_account": "Нет аккаунта?",
+  "auth.register": "Регистрация",
+  "auth.name_label": "Полное Имя",
+  "auth.confirm_password_label": "Подтвердите Пароль",
+  "auth.register_btn": "Создать Аккаунт",
+  "auth.have_account": "Уже есть аккаунт?",
+  "auth.login": "Войти",
+
+  "register_page.join_us": "Присоединяйтесь",
+  "register_page.create_account": "Создать аккаунт",
+  "register_page.start_journey": "Начните свой путь с Omuz.tj сегодня",
+  "register_page.terms": "Регистрируясь, вы соглашаетесь с нашими Условиями использования",
+
+  "cta_section.title": "Трансформируйте свой бизнес сегодня",
+  "cta_section.subtitle": "Присоединяйтесь к ведущим компаниям, доверяющим Omuz.",
+  "cta_section.get_started": "Сотрудничество",
+  "cta_section.contact": "Отдел продаж",
+
+  "login_page.welcome_back": "С возвращением",
+  "login_page.sign_in": "Войти",
+  "login_page.enter_credentials": "Введите свои учетные данные для доступа",
+  "login_page.security": "Защищено Omuz Security"
+};
+
+const translations_tj = {
+  "about_page.title": "Дар бораи ширкати Omuz",
+  "about_page.subtitle": "Технологияҳои инноватсионӣ барои оянда",
+  "about_page.story_title": "Таърихи мо",
+  "about_page.story_desc": "Omuz бо ҳадафи инқилоб дар фазои технологии Тоҷикистон таъсис ёфта, аз як стартапи дурбин ба як экосистемаи пешрафтаи нармафзор ва таълим табдил ёфт.",
+  "about_page.values_title": "Арзишҳои мо",
+  "about_page.values.innovation": "Инноватсия",
+  "about_page.values.community": "Шарикӣ",
+  "about_page.values.quality": "Бартарӣ",
+
+  "products_crm.title": "Omuz CRM",
+  "products_crm.subtitle": "Беҳтарин системаи идоракунӣ барои корхонаҳо",
+  "products_crm.description": "Кори маркази таълимии худро бо системаи мо осон кунед. Аз бақайдгирии донишҷӯён то ҳисоботи молиявӣ - Omuz CRM ҳамаи инро идора мекунад.",
+  "products_crm.cta": "Оғоз намудан",
+  "products_crm.demo": "Фармоиши намоиш",
+  "products_crm.features_title": "Ҳамаи он чизе, ки барои идоракунӣ лозим аст",
+  "products_crm.features_subtitle": "Воситаҳои пуриқтидор, махсус барои муассисаҳои таълимӣ.",
+  "products_crm.features.analytics.title": "Таҳлилгарии пешрафта",
+  "products_crm.features.analytics.desc": "Таҳлили воқеии бақайдгирӣ, даромад ва давомот.",
+  "products_crm.features.scheduling.title": "Ҷадвали ҳушманд",
+  "products_crm.features.scheduling.desc": "Тартибдиҳии автоматии ҷадвали дарсҳо ва идораи синфхонаҳо.",
+  "products_crm.features.payments.title": "Автоматикунонии молия",
+  "products_crm.features.payments.desc": "Назорати пардохтҳо, таҳияи ҳисобномаҳо ва идоракунии хароҷот.",
+  "products_crm.features.students.title": "Портали донишҷӯён",
+  "products_crm.features.students.desc": "Дастрасии махсус ба баҳоҳо ва маводҳо барои донишҷӯён.",
+  "products_crm.features.mobile.title": "Замимаи мобилӣ",
+  "products_crm.features.mobile.desc": "Тиҷоратро тавассути замимаҳои iOS ва Android дар роҳ идора кунед.",
+  "products_crm.features.support.title": "Дастгирии 24/7",
+  "products_crm.features.support.desc": "Дастгирии техникии махсус, омода аст дар ҳар вақт кӯмак кунад.",
+  "products_crm.stats.centers": "Марказҳои Таълимӣ",
+  "products_crm.stats.users": "Истифодабарандагони Фаъол",
+  "products_crm.stats.uptime": "Кафолати Фаъолият",
+  "products_crm.faq_title": "Саволҳои зиёд пурсидашаванда",
+  "products_crm.faq.q1": "Оё Omuz CRM системаи абрӣ аст?",
+  "products_crm.faq.a1": "Бале, Omuz CRM пурра системаи абрӣ буда, дастрасии бехатарро аз ҳама ҷо таъмин мекунад.",
+  "products_crm.faq.q2": "Оё метавонам маълумотҳои худро интиқол диҳам?",
+  "products_crm.faq.a2": "Албатта. Мо хизматрасониҳои ройгонро барои интиқоли маълумот пешниҳод мекунем.",
+  "products_crm.cta_section.title": "Омодаед тиҷорати худро беҳтар созед?",
+  "products_crm.cta_section.subtitle": "Ба зиёда аз 50+ марказҳои таълимӣ, ки Omuz CRM-ро истифода мебаранд, ҳамроҳ шавед.",
+  "products_crm.cta_section.btn": "Ройгон оғоз кунед",
+
+  "products_online.title": "Online Omuz",
+  "products_online.subtitle": "Система барои омӯзиш ва тренингҳои корпоративӣ",
+  "products_online.description": "Иқтидори худро бо курсҳои босифат аз коршиносони соҳа кашф кунед. Барномасозӣ, дизайн, маркетинг ва ғайраро омӯзед.",
+  "products_online.cta": "Оғози омӯзиш",
+  "products_online.browse": "Тамошои курсҳо",
+  "products_online.courses_title": "Категорияҳои маъмул",
+  "products_online.courses_subtitle": "Курси беҳтаринро барои такмили малака пайдо кунед.",
+  "products_online.categories.dev": "Барномасозӣ",
+  "products_online.categories.design": "Дизайн",
+  "products_online.categories.marketing": "Маркетинг",
+  "products_online.categories.business": "Тиҷорат",
+  "products_online.benefits_title": "Чаро Online Omuz-ро интихоб мекунанд?",
+  "products_online.benefits.expert.title": "Устодони коршинос",
+  "products_online.benefits.expert.desc": "Аз мутахассисони ширкатҳои пешрафтаи IT омӯзед.",
+  "products_online.benefits.certificate.title": "Сертификатҳои эътирофшуда",
+  "products_online.benefits.certificate.desc": "Пас аз хатм сертификат гиред, то малакаи худро нишон диҳед.",
+  "products_online.benefits.access.title": "Дастрасии якумра",
+  "products_online.benefits.access.desc": "Як маротиба пардохт кунед ва дастрасиро то абад захира кунед.",
+  "products_online.benefits.community.title": "Ҷомеаи омӯзандагон",
+  "products_online.benefits.community.desc": "Ба ҳазорон донишҷӯён дар форуми фаъоли мо пайваст шавед.",
+  "products_online.stats.courses": "Видеокурсҳо",
+  "products_online.stats.instructors": "Устодони таҷрибадор",
+  "products_online.stats.students": "Донишҷӯёни қаноатманд",
+  "products_online.cta_section.title": "Омӯзиши худро оғоз кунед",
+  "products_online.cta_section.subtitle": "Бо Pro дастрасии бемаҳдуд ба зиёда аз 100+ курсҳо пайдо кунед.",
+  "products_online.cta_section.btn": "Хариди Pro",
+
+  "hero.slides.0.title": "Ҳалли инноватсионӣ барои тиҷорати муосир",
+  "hero.slides.0.subtitle": "Мо хизматрасониҳои пешрафта оид ба коркарди нармафзор ва трансформатсияи рақамиро пешниҳод менамоем.",
+  "hero.slides.0.cta": "Хизматрасониҳои мо",
+  "hero.slides.1.title": "Omuz CRM ва Идоракунӣ",
+  "hero.slides.1.subtitle": "Системаҳои мукаммали идоракунӣ барои муассисаҳои таълимӣ ва корпоративӣ.",
+  "hero.slides.1.cta": "Дидани маҳсулот",
+  "hero.slides.2.title": "Системаи тарбиявии Online Omuz",
+  "hero.slides.2.subtitle": "Системаи беҳтарин барои таҳсилоти рақамии дастрас ва босифат.",
+  "hero.slides.2.cta": "Маълумоти бештар",
+
+  "advantages.title": "Чаро бо мо ҳамкорӣ бояд кард",
+  "advantages.method.title": "Методологияи инъикос (Agile)",
+  "advantages.method.desc": "Мо тавассути равандҳои рушди тағйирпазир ба эҳтиёҷоти шумо мутобиқ мешавем.",
+  "advantages.mentors.title": "Гурӯҳи коршиносон",
+  "advantages.mentors.desc": "Гурӯҳи мо аз мутахассисони варзида ва соҳибтаҷриба иборат аст.",
+  "advantages.fast.title": "Расондани фаврӣ",
+  "advantages.fast.desc": "Мо вақти шуморо қадр мекунем ва сари вақт супоридани лоиҳаҳоро кафолат медиҳем.",
+
+  "partners.title": "Ба мо пешвоёни соҳа эътимод доранд",
+
+  "courses_section.title": "Самтҳои асосии тахассусӣ",
+  "courses_section.filters.all": "Ҳамаи бахшҳо",
+  "courses_section.filters.frontend": "Барномасозӣ",
+  "courses_section.filters.backend": "Инфрасохтор",
+  "courses_section.filters.marketing": "Маркетинги рақамӣ",
+  "courses_section.filters.tme": "Консалтинг",
+  "courses_section.card.lessons": "модулҳо",
+  "courses_section.card.students": "истифодабарандагони фаъол",
+  "courses_section.card.certificate": "Сертификатсия",
+  "courses_section.items.frontend_react": "Барномасозии Веб",
+  "courses_section.items.backend_python": "Технологияҳои абрӣ",
+  "courses_section.items.smm": "Стратегияи рақамӣ",
+  "courses_section.items.graphic_design": "Дизайни UI/UX",
+  "courses_section.items.english": "Омӯзиши корпоративӣ",
+  "courses_section.items.qa": "Кафолати сифат",
+
+  "hub.title": "Экосистемаи мо",
+  "hub.subtitle": "Технологияҳо, маориф ва идоракунии тиҷоратро муттаҳид месозем.",
+  "hub.online.title": "Online Omuz",
+  "hub.online.desc": "Системаи рақамӣ барои омӯзиш ва тренингҳо.",
+  "hub.online.btn": "Омӯхтан",
+  "hub.crm.title": "Omuz CRM",
+  "hub.crm.desc": "Нозироти захираҳои корхона барои марказҳои таълимӣ.",
+  "hub.crm.btn": "Омӯхтан",
+
+  "about_section.badge": "Инноватсияҳои Рақамӣ",
+  "about_section.alt_team": "Ҳамкории дастаҷамъона",
+
+  "features_section.cards.mentors.title": "Муҳандисони коршинос",
+  "features_section.cards.mentors.desc": "Бо дастаи барномасозони калон ва коршиносони соҳа кор кунед.",
+  "features_section.cards.schedule.title": "Қарорҳои миқёспазир",
+  "features_section.cards.schedule.desc": "Системаҳое, ки барои рушд бо эҳтиёҷоти тиҷорати шумо тарҳрезӣ шудаанд.",
+  "features_section.cards.career.title": "Рушди стратегӣ",
+  "features_section.cards.career.desc": "Ба ширкатҳо дар расидан ба ҳадафҳои трансформатсияи рақамии онҳо кӯмак мекунем.",
+  "features_section.cards.community.title": "Шабакаи шарикон",
+  "features_section.cards.community.desc": "Дастрасӣ ба шабакаи васеи шарикони соҳа ва захираҳо.",
+
+  "auth.login_title": "Хуш омадед",
+  "auth.login_subtitle": "Маълумоти худро барои дастрасӣ ба ҳисоб ворид кунед",
+  "auth.email_label": "Почтаи электронӣ (Email)",
+  "auth.password_label": "Рамз (Парол)",
+  "auth.login_btn": "Ворид шудан",
+  "auth.forgot_password": "Рамзро фаромӯш кардед?",
+  "auth.no_account": "Ҳисоб надоред?",
+  "auth.register": "Бақайдгирӣ",
+  "auth.name_label": "Номи пурра",
+  "auth.confirm_password_label": "Тасдиқи рамз",
+  "auth.register_btn": "Ҳисоб сохтан",
+  "auth.have_account": "Шумо аллакай ҳисоб доред?",
+  "auth.login": "Ворид шудан",
+
+  "register_page.join_us": "Ба мо ҳамроҳ шавед",
+  "register_page.create_account": "Ҳисоб сохтан",
+  "register_page.start_journey": "Сафари худро бо Omuz.tj имрӯз оғоз кунед",
+  "register_page.terms": "Бо сабти ном шудан, шумо ба Шартҳои хизматрасонии мо розӣ мешавед",
+
+  "cta_section.title": "Тиҷорати худро имрӯз дигаргун созед",
+  "cta_section.subtitle": "Ба ширкатҳои пешрафта, ки ба Omuz эътимод доранд, ҳамроҳ шавед.",
+  "cta_section.get_started": "Фармоиш додан",
+  "cta_section.contact": "Шӯъбаи фурӯш",
+
+  "login_page.welcome_back": "Хуш омадед",
+  "login_page.sign_in": "Ворид шудан",
+  "login_page.enter_credentials": "Маълумоти худро барои дастрасӣ ворид кунед",
+  "login_page.security": "Бо Omuz Security ҳифз карда шудааст"
+};
+
+function applyTranslations(obj, additions) {
+  for (const [flatKey, value] of Object.entries(additions)) {
+    const parts = flatKey.split('.');
+    let current = obj;
+    for (let i = 0; i < parts.length - 1; i++) {
+      if (!current[parts[i]]) current[parts[i]] = {};
+      current = current[parts[i]];
+    }
+    current[parts[parts.length - 1]] = value;
+  }
+}
+
+applyTranslations(ru, translations_ru);
+applyTranslations(tj, translations_tj);
+
+fs.writeFileSync(ruPath, JSON.stringify(ru, null, 2), 'utf8');
+fs.writeFileSync(tjPath, JSON.stringify(tj, null, 2), 'utf8');
+
+console.log("Translation files updated successfully!");
