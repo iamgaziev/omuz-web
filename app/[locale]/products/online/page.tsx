@@ -1,6 +1,7 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,6 +33,7 @@ export default function OnlineProductPage({
 }) {
    const t = useTranslations("products_online");
    const formT = useTranslations("request_form");
+   const locale = useLocale();
    const heroRef = useRef<HTMLDivElement>(null);
    const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -322,44 +324,152 @@ export default function OnlineProductPage({
          </section>
 
          {/* THE FULL ECOSYSTEM */}
-         <section className="py-24 relative z-10 bg-slate-50 dark:bg-slate-950 border-y border-slate-200 dark:border-slate-800">
-            <div className="container max-w-5xl mx-auto px-4 py-10 relative">
+         <section className="py-32 relative z-10 bg-slate-50 dark:bg-slate-950 border-y border-slate-200 dark:border-slate-800 overflow-hidden">
+            {/* Background effects */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f08_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f08_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#4f4f4f15_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f15_1px,transparent_1px)] bg-[size:40px_40px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-[150px]" />
+
+            <div className="container max-w-6xl mx-auto px-4 relative z-10">
                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="flex flex-col md:flex-row items-center gap-12 p-10 md:p-16 rounded-[3rem] bg-gradient-to-br from-indigo-50 to-sky-50 dark:from-indigo-950/40 dark:to-sky-950/40 border border-indigo-100 dark:border-indigo-900/50 shadow-2xl relative overflow-hidden"
+                  transition={{ duration: 0.7 }}
+                  className="flex flex-col lg:flex-row items-center gap-16 p-10 md:p-16 rounded-[3rem] bg-gradient-to-br from-indigo-50/80 to-sky-50/80 dark:from-indigo-950/60 dark:to-sky-950/60 border border-indigo-100 dark:border-indigo-900/50 shadow-2xl backdrop-blur-xl relative overflow-hidden"
                >
-                  <div className="absolute right-0 bottom-0 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 blur-[100px] rounded-full" />
+                  {/* Decorative blurs */}
+                  <div className="absolute right-0 bottom-0 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 blur-[100px] rounded-full pointer-events-none" />
+                  <div className="absolute left-0 top-0 w-64 h-64 bg-sky-300/20 dark:bg-sky-500/10 blur-[80px] rounded-full pointer-events-none" />
 
-                  <div className="md:w-1/2 relative z-10">
+                  {/* Text content */}
+                  <div className="lg:w-1/2 relative z-10">
                      <div className="w-16 h-16 rounded-2xl bg-white dark:bg-slate-800 shadow-xl flex items-center justify-center mb-8 border border-slate-100 dark:border-slate-700">
                         <Image src="/omuz.svg" alt="Omuz" width={40} height={40} className="dark:invert" />
                      </div>
-                     <h2 className="text-4xl font-bold mb-4 text-slate-900 dark:text-white">{t('ecosystem.title')}</h2>
-                     <p className="text-xl text-indigo-600 dark:text-indigo-300 font-medium mb-4">{t('ecosystem.subtitle')}</p>
+                     <h2 className="text-4xl md:text-5xl font-black mb-4 text-slate-900 dark:text-white tracking-tight">{t('ecosystem.title')}</h2>
+                     <p className="text-xl text-indigo-600 dark:text-indigo-300 font-semibold mb-4">{t('ecosystem.subtitle')}</p>
                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-8">
                         {t('ecosystem.desc')}
                      </p>
-                     <Button variant="outline" className="rounded-xl h-12 px-6 border-indigo-200 dark:border-indigo-800 bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-800 text-indigo-700 dark:text-indigo-300">
-                        Discover Omuz CRM <ChevronRight className="ml-2 w-4 h-4" />
-                     </Button>
+
+                     {/* Stats row */}
+                     <div className="flex items-center gap-6 mb-8 text-sm">
+                        <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 rounded-full bg-sky-500" />
+                           <span className="text-slate-700 dark:text-slate-300 font-semibold">2 продукта</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 rounded-full bg-purple-500" />
+                           <span className="text-slate-700 dark:text-slate-300 font-semibold">5000+ пользователей</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                           <div className="w-2 h-2 rounded-full bg-emerald-500" />
+                           <span className="text-slate-700 dark:text-slate-300 font-semibold">50+ центров</span>
+                        </div>
+                     </div>
+
+                     {/* Two buttons */}
+                     <div className="flex flex-col sm:flex-row gap-3">
+                        <Link href={`/${locale}/products/crm`}>
+                           <Button className="rounded-xl h-12 px-6 bg-sky-600 hover:bg-sky-500 text-white shadow-lg shadow-sky-600/20 transition-all hover:scale-105 group w-full">
+                              Omuz CRM <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                           </Button>
+                        </Link>
+                        <Link href={`/${locale}/products/online`}>
+                           <Button variant="outline" className="rounded-xl h-12 px-6 border-indigo-200 dark:border-indigo-800 bg-white/50 dark:bg-slate-900/50 hover:bg-white dark:hover:bg-slate-800 text-indigo-700 dark:text-indigo-300 transition-all hover:scale-105 group w-full">
+                              Omuz Online <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                           </Button>
+                        </Link>
+                     </div>
                   </div>
 
-                  <div className="md:w-1/2 relative z-10 w-full aspect-square md:aspect-auto">
-                     {/* Abstract Ecosystem Graphic */}
-                     <div className="relative w-full h-full min-h-[300px] flex items-center justify-center">
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops))] from-indigo-500/20 via-transparent to-transparent blur-2xl" />
-                        <div className="relative w-48 h-48 rounded-full border-2 border-dashed border-indigo-300 dark:border-indigo-700/50 animate-spin-slow flex items-center justify-center">
-                           <div className="w-32 h-32 rounded-full border border-sky-300 dark:border-sky-700/50 animate-reverse-spin flex items-center justify-center">
-                              <div className="w-16 h-16 rounded-full bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center z-20">
-                                 <BookOpen className="w-8 h-8 text-sky-500" />
+                  {/* Interactive orbit */}
+                  <div className="lg:w-1/2 relative z-10 w-full flex items-center justify-center" style={{ minHeight: 350 }}>
+                     <div className="relative w-64 h-64 flex items-center justify-center">
+
+                        {/* Pulsing glow behind center */}
+                        <motion.div
+                           animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+                           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                           className="absolute w-20 h-20 bg-sky-400/30 dark:bg-sky-500/20 rounded-full blur-xl pointer-events-none"
+                        />
+
+                        {/* Outer orbit ring */}
+                        <motion.div
+                           animate={{ rotate: 360 }}
+                           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                           className="absolute w-64 h-64 rounded-full border-2 border-dashed border-indigo-300/50 dark:border-indigo-700/40"
+                        >
+                           {/* Node: CRM */}
+                           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 group/node cursor-pointer">
+                              <motion.div
+                                 animate={{ rotate: -360 }}
+                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                 className="w-12 h-12 bg-purple-500 rounded-full shadow-lg shadow-purple-500/40 flex items-center justify-center text-white hover:scale-125 transition-transform"
+                              >
+                                 <BarChart3 className="w-5 h-5" />
+                              </motion.div>
+                              <div className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover/node:opacity-100 transition-opacity bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs px-3 py-1.5 rounded-lg font-medium shadow-xl pointer-events-none">
+                                 CRM Система
                               </div>
                            </div>
-                           {/* Orbiting nodes */}
-                           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-purple-500 rounded-full shadow-lg shadow-purple-500/50" />
-                           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-6 h-6 bg-emerald-400 rounded-full shadow-lg shadow-emerald-400/50" />
-                           <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-sky-400 rounded-full shadow-lg shadow-sky-400/50 flex items-center justify-center text-white"><Users className="w-5 h-5" /></div>
+
+                           {/* Node: Online */}
+                           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 group/node cursor-pointer">
+                              <motion.div
+                                 animate={{ rotate: -360 }}
+                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                 className="w-10 h-10 bg-emerald-400 rounded-full shadow-lg shadow-emerald-400/40 flex items-center justify-center text-white hover:scale-125 transition-transform"
+                              >
+                                 <PlayCircle className="w-5 h-5" />
+                              </motion.div>
+                              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-0 group-hover/node:opacity-100 transition-opacity bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs px-3 py-1.5 rounded-lg font-medium shadow-xl pointer-events-none">
+                                 Online Платформа
+                              </div>
+                           </div>
+
+                           {/* Node: Students */}
+                           <div className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 group/node cursor-pointer">
+                              <motion.div
+                                 animate={{ rotate: -360 }}
+                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                 className="w-11 h-11 bg-sky-400 rounded-full shadow-lg shadow-sky-400/40 flex items-center justify-center text-white hover:scale-125 transition-transform"
+                              >
+                                 <Users className="w-5 h-5" />
+                              </motion.div>
+                              <div className="absolute -left-2 top-full mt-2 whitespace-nowrap opacity-0 group-hover/node:opacity-100 transition-opacity bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs px-3 py-1.5 rounded-lg font-medium shadow-xl pointer-events-none">
+                                 Студенты
+                              </div>
+                           </div>
+
+                           {/* Node: Awards */}
+                           <div className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 group/node cursor-pointer">
+                              <motion.div
+                                 animate={{ rotate: -360 }}
+                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                 className="w-9 h-9 bg-amber-400 rounded-full shadow-lg shadow-amber-400/40 flex items-center justify-center text-white hover:scale-125 transition-transform"
+                              >
+                                 <Award className="w-4 h-4" />
+                              </motion.div>
+                              <div className="absolute right-full mr-2 top-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 group-hover/node:opacity-100 transition-opacity bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs px-3 py-1.5 rounded-lg font-medium shadow-xl pointer-events-none">
+                                 Сертификаты
+                              </div>
+                           </div>
+                        </motion.div>
+
+                        {/* Inner orbit ring */}
+                        <motion.div
+                           animate={{ rotate: -360 }}
+                           transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+                           className="absolute w-36 h-36 rounded-full border border-sky-300/40 dark:border-sky-700/30"
+                        >
+                           <div className="absolute top-0 right-0 translate-x-1/3 -translate-y-1/3 w-6 h-6 bg-indigo-400 rounded-full shadow-md shadow-indigo-400/40" />
+                           <div className="absolute bottom-0 left-0 -translate-x-1/3 translate-y-1/3 w-5 h-5 bg-pink-400 rounded-full shadow-md shadow-pink-400/40" />
+                        </motion.div>
+
+                        {/* Center icon */}
+                        <div className="w-20 h-20 rounded-full bg-white dark:bg-slate-800 shadow-2xl border border-slate-100 dark:border-slate-700 flex items-center justify-center z-20 relative">
+                           <BookOpen className="w-10 h-10 text-sky-500" />
                         </div>
                      </div>
                   </div>

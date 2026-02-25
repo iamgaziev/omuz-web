@@ -206,3 +206,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.animate-marquee {
+  animation: scroll-marquee 30s linear infinite;
+}
+
+@keyframes scroll-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

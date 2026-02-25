@@ -64,21 +64,18 @@ export default function ContactPage({
                         </div>
                      </div>
 
-                     {/* Map Placeholder */}
-                     <div className="mt-8 h-64 w-full bg-slate-200 dark:bg-slate-800 rounded-2xl overflow-hidden relative group">
-                        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground font-medium bg-slate-100 dark:bg-slate-900">
-                           {t('map_implementation')}
-                        </div>
-                        {/* Simulated Map UI */}
-                        <div className="absolute top-4 right-4 p-2 bg-background rounded-lg shadow-sm">
-                           <div className="w-4 h-4 rounded-full bg-sky-500" />
-                        </div>
+                     {/* Map */}
+                     <p className="text-sm text-muted-foreground font-large">{t('map_implementation')}</p>
+                     <div className="h-64 w-full rounded-2xl overflow-hidden relative group cursor-pointer border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-shadow duration-500">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d871.4000973259053!2d68.75917633309824!3d38.56373114064735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38b5d1e787e0d7f1%3A0xf9e530d3017a4375!2z0JDQutCw0LTQtdC80LjRj9C4INCx0LDRgNC90L7QvNCw0YHQvtC30LjQuCBTb2Z0Y2x1Yg!5e0!3m2!1sru!2s!4v1771989027602!5m2!1sru!2s" className="absolute inset-0 w-full h-full border-0" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        {/* Тёмный overlay — исчезает при hover */}
+                        <div className="absolute inset-0 bg-slate-900/40 dark:bg-slate-900/60 pointer-events-none transition-opacity duration-500 group-hover:opacity-0 rounded-2xl" />
                      </div>
                   </div>
 
                   {/* Contact Form */}
                   <div className="bg-card border border-border p-8 rounded-3xl shadow-lg relative overflow-hidden">
-                     <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-sky-500 to-purple-500" />
+                     <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-sky-500 to-purple-500" />
 
                      <ContactForm translations={{
                         name: t('form.name'),

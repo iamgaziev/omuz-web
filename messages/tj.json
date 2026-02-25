@@ -4,8 +4,8 @@
     "about": "Дар бораи мо",
     "products": "Маҳсулот",
     "services": "Хизматрасониҳо",
-    "crm": "CRM",
-    "online": "Online",
+    "crm": "CRM Omuz",
+    "online": "Online Omuz",
     "contact": "Тамос",
     "login": "Ворид шудан",
     "view_details": "Муфассал",
@@ -35,8 +35,8 @@
     "cta_btn": "Бо мо тамос гиред"
   },
   "contact_page": {
-    "title": "Get in Touch",
-    "subtitle": "Let's discuss how we can help your business grow",
+    "title": "Бо мо тамос гиред",
+    "subtitle": "Биёед муҳокима кунем, ки чӣ тавр мо метавонем ба тиҷорати шумо кӯмак кунем",
     "form": {
       "name": "Ном",
       "email": "Почтаи электронӣ",
@@ -53,9 +53,9 @@
     "email_label": "Почтаи электронӣ",
     "phone_label": "Телефон",
     "info": {
-      "address": "Dushanbe, Tajikistan",
+      "address": "Душанбе, Тоҷикистон",
       "email": "info@omuz.tj",
-      "phone": "+992 900 00 00 00",
+      "phone": "(+992) 558-700-900",
       "phone_placeholder": "+992 00 000 00 00",
       "email_placeholder": "example@gmail.com"
     },
@@ -312,7 +312,29 @@
     }
   },
   "partners": {
-    "title": "Ба мо пешвоёни соҳа эътимод доранд"
+    "title": "Ҳамкорони мо",
+    "subtitle": "Платформаи OMUZ-ро мактабҳо ва академияҳои пешбар истифода мебаранд",
+    "direction_label": "Самт",
+    "clients": [
+      {
+        "description": "Академияи IT"
+      },
+      {
+        "description": "Маркази таълимӣ"
+      },
+      {
+        "description": "Мактаби барномасозӣ"
+      },
+      {
+        "description": "Таълими инноватсионӣ"
+      },
+      {
+        "description": "Маҷмааи таълимӣ"
+      },
+      {
+        "description": "Digital Learning Center"
+      }
+    ]
   },
   "testimonials": {
     "title_1": "Шарикон",
@@ -410,8 +432,8 @@
     ]
   },
   "contact_section": {
-    "title": "Ready to Innovate?",
-    "subtitle": "Leave your details, and our specialists will contact you to discuss your project.",
+    "title": "Ба инноватсия тайёред?",
+    "subtitle": "Маълумоти худро гузоред ва мутахассисони мо бо шумо тамос мегиранд.",
     "form": {
       "name": "Ному насаб",
       "phone": "Рақами телефон",
@@ -442,7 +464,7 @@
     "info": "Ширкат",
     "contact": "Тамос",
     "address": "Душанбе, Тоҷикистон",
-    "phone": "(+992) 111 585 050",
+    "phone": "(+992) 558-700-900",
     "email": "online@omuz.tj",
     "privacy": "Сиёсати махфият",
     "terms": "Шартҳои хизматрасонӣ"

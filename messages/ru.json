@@ -4,8 +4,8 @@
     "about": "О нас",
     "products": "Продукты",
     "services": "Услуги",
-    "crm": "CRM",
-    "online": "Online",
+    "crm": "CRM Omuz",
+    "online": "Online Omuz",
     "contact": "Контакты",
     "login": "Войти",
     "view_details": "Подробнее",
@@ -55,7 +55,7 @@
     "info": {
       "address": "Душанбе, Таджикистан",
       "email": "info@omuz.tj",
-      "phone": "+992 900 00 00 00",
+      "phone": "(+992) 558-700-900",
       "phone_placeholder": "+992 00 000 00 00",
       "email_placeholder": "example@gmail.com"
     },
@@ -285,7 +285,7 @@
         "cta": "Просмотр продуктов"
       },
       {
-        "title": "Платформа Online",
+        "title": "Online Платформа",
         "subtitle": "Лучшая платформа для доступного и качественного цифрового образования.",
         "cta": "Узнать больше"
       }
@@ -312,7 +312,29 @@
     }
   },
   "partners": {
-    "title": "Нам доверяют лидеры отрасли"
+    "title": "Наши партнёры",
+    "subtitle": "Платформу OMUZ используют ведущие школы и академии",
+    "direction_label": "Направление",
+    "clients": [
+      {
+        "description": "IT Академия"
+      },
+      {
+        "description": "Образовательный центр"
+      },
+      {
+        "description": "Школа программирования"
+      },
+      {
+        "description": "Инновационное обучение"
+      },
+      {
+        "description": "Учебный комплекс"
+      },
+      {
+        "description": "Digital Learning Center"
+      }
+    ]
   },
   "testimonials": {
     "title_1": "Что говорят",
@@ -410,8 +432,8 @@
     ]
   },
   "contact_section": {
-    "title": "Ready to Innovate?",
-    "subtitle": "Leave your details, and our specialists will contact you to discuss your project.",
+    "title": "Готовы к инновациям?",
+    "subtitle": "Оставьте свои данные, и наши специалисты свяжутся с вами для обсуждения вашего проекта.",
     "form": {
       "name": "ФИО",
       "phone": "Номер телефона",
@@ -442,7 +464,7 @@
     "info": "Компания",
     "contact": "Контакты",
     "address": "Душанбе, Таджикистан",
-    "phone": "(+992) 111 585 050",
+    "phone": "(+992) 558-700-900",
     "email": "online@omuz.tj",
     "privacy": "Политика конфиденциальности",
     "terms": "Условия использования"

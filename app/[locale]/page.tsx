@@ -4,7 +4,7 @@ import { AboutSection } from "@/components/sections/about-section";
 import { FeaturesSection } from "@/components/sections/features-section";
 import { ProductSelectionCard } from "@/components/hub/ProductSelectionCard";
 import { Footer } from "@/components/footer";
-import { PartnersMarquee } from "@/components/sections/partners-marquee";
+import { Clients } from "@/components/sections/partners-marquee";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { EcosystemBeam } from "@/components/sections/ecosystem-beam";
 
@@ -21,7 +21,7 @@ export default async function Home({
     <div className="min-h-screen flex flex-col">
       <HeroSlider />
 
-      <PartnersMarquee />
+      <Clients />
 
       <AboutSection />
 

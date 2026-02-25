@@ -12,7 +12,7 @@ import {
    Shield,
    Zap,
 } from "lucide-react";
-import { PartnersMarquee } from "@/components/sections/partners-marquee";
+import { Clients } from "@/components/sections/partners-marquee";
 import { StatisticsSection as Statistics } from "@/components/sections/statistics";
 
 export default function AboutPage({ params }: { params: { locale: string } }) {
@@ -41,42 +41,35 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
    ];
 
    const team = [
-
       {
          name: "Najibulloh Shamsudinov",
-         role: "Senior Developer / Chief Manager",
-         image:
-            "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+         role: "Software Engineer",
+         image: "/team/najibulloh.jpg",
       },
       {
          name: "Olimjon Tojiev",
-         role: "Senior Backend Dev / Backend Team Lead",
-         image:
-            "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop",
+         role: "Backend Developer",
+         image: "/team/olimjon.jpg",
       },
       {
          name: "Hasan Huseynov",
-         role: "Middle Frontend Dev / Frontend Team Lead",
-         image:
-            "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+         role: "Frontend Developer",
+         image: "/team/hasan.jpg",
       },
       {
          name: "Shamsuddin Arbobzoda",
          role: "Backend Developer",
-         image:
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+         image: "/team/shamsiddin.jpg",
       },
       {
          name: "Murodbek Gulmatov",
          role: "Frontend Developer",
-         image:
-            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
+         image: "/team/murodbek.jpg",
       },
       {
          name: "Muhammadsodiq Gaziev",
          role: "Frontend Developer",
-         image:
-            "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=800&auto=format&fit=crop",
+         image: "/team/muhammadsodiq.jpg",
       },
    ];
 
@@ -204,7 +197,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
 
          {/* Partners */}
          <section className="py-12 border-y border-border bg-slate-50/50 dark:bg-slate-900/20">
-            <PartnersMarquee />
+            <Clients />
          </section>
 
          {/* CTA Section */}
