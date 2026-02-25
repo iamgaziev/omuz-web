@@ -57,7 +57,7 @@ export function Clients() {
   if (!mounted) return null
 
   return (
-    <section className="relative py-24 md:py-32 bg-gradient-to-b from-white to-slate-50 dark:bg-[#030305] overflow-hidden border-y border-slate-200/50 dark:border-white/5">
+    <section className="relative py-24 md:py-32 bg-gradient-to-b from-white to-slate-50 dark:from-[#030305] dark:to-[#030305] overflow-hidden border-y border-slate-200/50 dark:border-white/5">
       {/* Background effects */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-sky-200/30 dark:bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f08_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f08_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />

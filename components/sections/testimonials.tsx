@@ -31,7 +31,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-white to-slate-50 dark:bg-[#030305] border-y border-slate-200/50 dark:border-white/5"
+      className="py-24 lg:py-32 relative overflow-hidden bg-gradient-to-b from-white to-slate-50 dark:from-[#030305] dark:to-[#030305] border-y border-slate-200/50 dark:border-white/5"
     >
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f06_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f06_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#4f4f4f12_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f12_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
