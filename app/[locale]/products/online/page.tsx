@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import {
    PlayCircle, Award, BookOpen, PenTool,
    BarChart3, Users, Video, BadgeCheck,
@@ -75,53 +75,81 @@ export default function OnlineProductPage({
                className="absolute bottom-0 left-1/4 w-[40vw] h-[40vw] bg-purple-500/20 rounded-full blur-[150px] pointer-events-none mix-blend-screen"
             />
 
-            <div className="container max-w-7xl mx-auto px-4 relative z-10 flex flex-col items-center text-center">
-               <motion.div variants={STAGGER} initial="hidden" animate="show" className="max-w-4xl flex flex-col items-center">
+            <div className="container max-w-7xl mx-auto px-4 relative z-10">
+               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                  <motion.div variants={STAGGER} initial="hidden" animate="show" className="max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left">
+                     <motion.div variants={FADE_UP} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md mb-8 shadow-inner dark:shadow-sky-500/10">
+                        <div className="relative flex h-2.5 w-2.5">
+                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
+                        </div>
+                        <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{t('badge')}</span>
+                     </motion.div>
 
-                  <motion.div variants={FADE_UP} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50 backdrop-blur-md mb-8 shadow-inner dark:shadow-sky-500/10">
-                     <div className="relative flex h-2.5 w-2.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-sky-500"></span>
-                     </div>
-                     <span className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">{t('badge')}</span>
+                     <motion.h1 variants={FADE_UP} className="text-5xl sm:text-6xl md:text-7xl font-black mb-6 tracking-tight leading-[1.1] text-slate-900 dark:text-white">
+                        {t('title')}.<br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-purple-600 dark:from-sky-400 dark:via-blue-500 dark:to-purple-500 py-2 block">
+                           {t('subtitle')}
+                        </span>
+                     </motion.h1>
+
+                     <motion.p variants={FADE_UP} className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-xl font-light leading-relaxed">
+                        {t('description')}
+                     </motion.p>
+
+                     {/* Trust Stats Row */}
+                     <motion.div variants={FADE_UP} className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800/50 flex flex-wrap justify-center lg:justify-start gap-8 sm:gap-12 text-slate-700 dark:text-slate-300 w-full">
+                        <div className="flex flex-col items-center lg:items-start">
+                           <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">10K+</span>
+                           <span className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-semibold">{t('stats.students')}</span>
+                        </div>
+                        <div className="flex flex-col items-center lg:items-start">
+                           <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">500+</span>
+                           <span className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-semibold">{t('stats.courses')}</span>
+                        </div>
+                        <div className="flex flex-col items-center lg:items-start">
+                           <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">100+</span>
+                           <span className="text-xs sm:text-sm uppercase tracking-wider text-slate-500 font-semibold">{t('stats.instructors')}</span>
+                        </div>
+                     </motion.div>
                   </motion.div>
 
-                  <motion.h1 variants={FADE_UP} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-6 tracking-tight leading-[1.1] text-slate-900 dark:text-white">
-                     {t('title')}.<br />
-                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-blue-600 to-purple-600 dark:from-sky-400 dark:via-blue-500 dark:to-purple-500 py-2 block">
-                        {t('subtitle')}
-                     </span>
-                  </motion.h1>
+                  {/* Hero Image Section */}
+                  <motion.div
+                     initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                     animate={{ opacity: 1, scale: 1, y: 0 }}
+                     transition={{ duration: 0.8, delay: 0.2 }}
+                     className="relative w-full max-w-2xl mx-auto lg:mx-0"
+                  >
+                     <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-900/5 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50 shadow-2xl backdrop-blur-sm">
+                        <div className="aspect-[4/3] sm:aspect-[16/10] relative">
+                           <Image
+                              src="/online-hero.png"
+                              alt="Omuz Online Platform"
+                              fill
+                              className="object-cover sm:object-contain p-2 sm:p-4 hover:scale-105 transition-transform duration-700"
+                           />
+                        </div>
+                        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white/20 dark:from-slate-900/40 to-transparent pointer-events-none" />
+                     </div>
 
-                  <motion.p variants={FADE_UP} className="text-lg sm:text-xl md:text-2xl text-slate-600 dark:text-slate-400 mb-10 max-w-3xl font-light leading-relaxed">
-                     {t('description')}
-                  </motion.p>
-
-                  <motion.div variants={FADE_UP} className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
-                     <Button size="lg" className="h-14 sm:h-16 px-8 sm:px-10 text-base sm:text-lg rounded-2xl bg-sky-600 hover:bg-sky-500 text-white shadow-[0_0_40px_-10px_rgba(14,165,233,0.3)] dark:shadow-[0_0_40px_-10px_rgba(14,165,233,0.5)] border border-sky-400/30 transition-all hover:scale-105 group w-full sm:w-auto">
-                        {t('cta_student')} <Compass className="ml-2 w-5 h-5 group-hover:rotate-45 transition-transform" />
-                     </Button>
-                     <Button size="lg" variant="outline" className="h-14 sm:h-16 px-8 sm:px-10 text-base sm:text-lg rounded-2xl border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all hover:scale-105 backdrop-blur-md group w-full sm:w-auto">
-                        {t('cta_creator')} <PenTool className="ml-2 w-5 h-5 group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors" />
-                     </Button>
+                     {/* Decorative floating elements around the image */}
+                     <motion.div
+                        animate={{ y: [-10, 10, -10] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute -top-6 -right-6 lg:-top-8 lg:-right-8 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700"
+                     >
+                        <PlayCircle className="w-8 h-8 text-sky-500" />
+                     </motion.div>
+                     <motion.div
+                        animate={{ y: [10, -10, 10] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute -bottom-6 -left-6 lg:-bottom-8 lg:-left-8 bg-purple-500 text-white p-4 rounded-2xl shadow-xl"
+                     >
+                        <BadgeCheck className="w-8 h-8" />
+                     </motion.div>
                   </motion.div>
-
-                  {/* Trust Stats Row */}
-                  <motion.div variants={FADE_UP} className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800/50 flex flex-wrap justify-center gap-8 sm:gap-16 text-slate-700 dark:text-slate-300">
-                     <div className="flex flex-col items-center">
-                        <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">10K+</span>
-                        <span className="text-sm uppercase tracking-wider text-slate-500 font-semibold">{t('stats.students')}</span>
-                     </div>
-                     <div className="flex flex-col items-center">
-                        <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">500+</span>
-                        <span className="text-sm uppercase tracking-wider text-slate-500 font-semibold">{t('stats.courses')}</span>
-                     </div>
-                     <div className="flex flex-col items-center">
-                        <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">100+</span>
-                        <span className="text-sm uppercase tracking-wider text-slate-500 font-semibold">{t('stats.instructors')}</span>
-                     </div>
-                  </motion.div>
-               </motion.div>
+               </div>
             </div>
          </section>
 
@@ -147,11 +175,14 @@ export default function OnlineProductPage({
                      <PenTool className="w-12 h-12 text-purple-600 dark:text-purple-400 mb-6" />
                      <h3 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">{t('creators.features.builder.title')}</h3>
                      <p className="text-slate-600 dark:text-slate-400 text-lg max-w-md">{t('creators.features.builder.desc')}</p>
-                     {/* Abstract builder graphic */}
-                     <div className="absolute right-0 bottom-0 md:-right-10 md:-bottom-10 w-64 h-48 bg-slate-50/80 dark:bg-slate-800/50 rounded-tl-3xl border-l border-t border-slate-200 dark:border-slate-700 backdrop-blur-md translate-y-12 translate-x-12 group-hover:translate-y-4 transition-transform duration-500 shadow-2xl flex flex-col p-4 gap-3">
-                        <div className="h-6 w-3/4 bg-slate-200 dark:bg-slate-700 rounded-md" />
-                        <div className="h-16 w-full bg-slate-200/50 dark:bg-slate-700/50 rounded-md" />
-                        <div className="h-6 w-1/2 bg-sky-200/50 dark:bg-sky-500/20 rounded-md" />
+                     {/* Image preview replacing the abstract shapes */}
+                     <div className="absolute right-0 bottom-0 md:-right-8 md:-bottom-8 w-[80%] h-[70%] bg-slate-50/80 dark:bg-slate-800/50 rounded-tl-xl sm:rounded-tl-2xl border-l border-t border-slate-200 dark:border-slate-700 shadow-2xl translate-y-8 translate-x-8 group-hover:translate-y-4 group-hover:-translate-x-2 transition-transform duration-500 overflow-hidden">
+                        <Image
+                           src="/online-features.png"
+                           alt="Creator Dashboard Layout"
+                           fill
+                           className="object-cover object-left-top"
+                        />
                      </div>
                   </motion.div>
 
@@ -194,6 +225,24 @@ export default function OnlineProductPage({
                   <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 dark:text-white">{t('students.title')}</h2>
                   <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('students.subtitle')}</p>
                </div>
+
+               {/* New Course Detail Image Section */}
+               <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="mb-16 relative rounded-3xl sm:rounded-[2.5rem] overflow-hidden bg-slate-900/5 dark:bg-slate-800/30 border border-slate-200/80 dark:border-slate-700/50 shadow-2xl"
+               >
+                  <div className="aspect-[16/9] md:aspect-[21/9] relative">
+                     <Image
+                        src="/online-course-detail.png"
+                        alt="Course Video Player"
+                        fill
+                        className="object-cover md:object-contain object-top hover:scale-[1.02] transition-transform duration-700 p-2 sm:p-4"
+                     />
+                  </div>
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 dark:ring-white/10 rounded-3xl sm:rounded-[2.5rem] pointer-events-none" />
+               </motion.div>
 
                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                   {[

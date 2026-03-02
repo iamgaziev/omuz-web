@@ -160,7 +160,17 @@
       "subtitle": "Join 50+ Centers",
       "btn": "Get Started Now"
     },
-    "link": "omuz.tj/crm"
+    "link": "omuz.tj/crm",
+    "gallery_title": "See the System in Action",
+    "gallery_subtitle": "Real screenshots of the Omuz CRM platform",
+    "gallery_dashboard": "Dashboard",
+    "gallery_dashboard_desc": "Full statistics: students, groups, attendance, leads, and revenue",
+    "gallery_groups": "Group Management",
+    "gallery_groups_desc": "Course cards with schedule and student information",
+    "gallery_branches_chart": "Branch Analytics",
+    "gallery_branches_chart_desc": "Interactive monthly activity charts",
+    "gallery_branches": "Branch Management",
+    "gallery_branches_desc": "Detailed table with charts and filters"
   },
   "products_online": {
     "title": "Omuz Online",
@@ -217,8 +227,8 @@
       "title": "How to get started",
       "steps": {
         "1": {
-          "title": "Create your account",
-          "desc": "Sign up in seconds and join our growing community."
+          "title": "Contact Us",
+          "desc": "Write to us or visit our office: Dushanbe, Tajikistan. Phone: (+992) 558-700-900."
         },
         "2": {
           "title": "Pick your path",

@@ -7,7 +7,6 @@ import { Facebook, Instagram, Mail, MapPin, Phone, Send } from "lucide-react"
 
 export function Footer() {
   const t = useTranslations("footer")
-  
   return (
     <footer className="bg-sky-50/50 dark:bg-slate-950 text-foreground border-t border-border pt-12 pb-8 transition-colors duration-300 ">
       <div className="container max-w-7xl mx-auto px-4">

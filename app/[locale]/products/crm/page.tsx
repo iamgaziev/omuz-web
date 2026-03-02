@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+
 import { BarChart3, Calendar, CreditCard, ChevronRight, Users, Smartphone, Headphones, CheckCircle2, Building2, Activity, Globe, Zap, ArrowRight, ShieldCheck, Database, Send, Loader2 } from "lucide-react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef, useState } from "react";
@@ -144,10 +144,10 @@ export default function CrmProductPage({
                                 className="relative transform rotate-x-[15deg] rotate-z-[-2deg] transition-all duration-700 hover:rotate-0 hover:scale-105"
                             >
                                 <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/40 dark:border-white/10 p-4 ring-1 ring-purple-500/20">
-                                    <div className="aspect-[16/10] bg-slate-900 rounded-2xl overflow-hidden relative shadow-inner">
-                                        <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "15%"]) }} className="w-full h-full">
+                                    <div className="aspect-[2/1] bg-slate-900 rounded-2xl overflow-hidden relative shadow-inner">
+                                        <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], ["0%", "15%"]) }} className="w-full h-[115%] -top-[7.5%] relative">
                                             <Image
-                                                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                                                src="/crm-dashboard.png"
                                                 alt="Dashboard Preview"
                                                 fill
                                                 className="object-cover opacity-90 hover:scale-105 transition-transform duration-[2s] ease-out"
@@ -311,6 +311,143 @@ export default function CrmProductPage({
                             </div>
                         </motion.div>
 
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* Screenshots Gallery Section */}
+            <section className="py-20 lg:py-32 bg-white dark:bg-slate-900 relative overflow-hidden border-t border-slate-200/50 dark:border-slate-800/50">
+                {/* Background decorative elements */}
+                <div className="absolute inset-0 pointer-events-none z-0">
+                    <div className="absolute -top-[30%] -right-[15%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-[120px]" />
+                    <div className="absolute -bottom-[30%] -left-[15%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-[120px]" />
+                </div>
+
+                <div className="container max-w-7xl mx-auto px-4 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center max-w-3xl mx-auto mb-12 lg:mb-20"
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium text-xs sm:text-sm mb-6 border border-purple-200/50 dark:border-purple-800/50"
+                        >
+                            <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
+                            Live Preview
+                        </motion.div>
+                        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-slate-900 dark:text-white tracking-tight">{t('gallery_title')}</h2>
+                        <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 font-light">{t('gallery_subtitle')}</p>
+                    </motion.div>
+
+                    {/* Bento Grid Gallery */}
+                    <motion.div
+                        variants={STAGGER}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-100px" }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6"
+                    >
+                        {/* Screenshot 1 — Dashboard (half width) */}
+                        <motion.div
+                            variants={FADE_UP}
+                            whileHover={{ y: -8, scale: 1.01 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 transition-shadow duration-500"
+                        >
+                            <div className="aspect-[4/3] relative overflow-hidden">
+                                <Image
+                                    src="/crm-dashboard.png"
+                                    alt={t('gallery_dashboard')}
+                                    fill
+                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                />
+                                {/* Gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                {/* Label on hover */}
+                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_dashboard')}</h3>
+                                    <p className="text-sm text-slate-300 font-light">{t('gallery_dashboard_desc')}</p>
+                                </div>
+                            </div>
+                            {/* Glow ring */}
+                            {/* Glow ring */}
+                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-purple-500/30 transition-all duration-500 pointer-events-none" />
+                        </motion.div>
+
+                        {/* Screenshot 2 — Dashboard 2 (half width) */}
+                        <motion.div
+                            variants={FADE_UP}
+                            whileHover={{ y: -8, scale: 1.01 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 transition-shadow duration-500"
+                        >
+                            <div className="aspect-[4/3] relative overflow-hidden">
+                                <Image
+                                    src="/crm-dashboard.png"
+                                    alt={t('gallery_dashboard')}
+                                    fill
+                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_dashboard')} 2</h3>
+                                    <p className="text-sm text-slate-300 font-light">{t('gallery_dashboard_desc')}</p>
+                                </div>
+                            </div>
+                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-purple-500/30 transition-all duration-500 pointer-events-none" />
+                        </motion.div>
+
+                        {/* Screenshot 3 — Branches Chart (full width, horizontal) */}
+                        <motion.div
+                            variants={FADE_UP}
+                            whileHover={{ y: -8, scale: 1.01 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="md:col-span-2 group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/20 transition-shadow duration-500"
+                        >
+                            <div className="aspect-[21/9] relative overflow-hidden">
+                                <Image
+                                    src="/crm-chart.png"
+                                    alt={t('gallery_branches_chart')}
+                                    fill
+                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_groups')}</h3>
+                                    <p className="text-sm text-slate-300 font-light">{t('gallery_groups_desc')}</p>
+                                </div>
+                            </div>
+                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-sky-500/30 transition-all duration-500 pointer-events-none" />
+                        </motion.div>
+
+
+
+                        {/* Screenshot 4 — Branches Detail (full width, horizontal) */}
+                        <motion.div
+                            variants={FADE_UP}
+                            whileHover={{ y: -8, scale: 1.01 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="md:col-span-2 group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-orange-500/10 dark:hover:shadow-orange-500/20 transition-shadow duration-500"
+                        >
+                            <div className="aspect-[21/9] relative overflow-hidden">
+                                <Image
+                                    src="/crm-branches.jpg"
+                                    alt={t('gallery_branches')}
+                                    fill
+                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_branches')}</h3>
+                                    <p className="text-sm text-slate-300 font-light">{t('gallery_branches_desc')}</p>
+                                </div>
+                            </div>
+                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-orange-500/30 transition-all duration-500 pointer-events-none" />
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>
@@ -540,10 +677,10 @@ export default function CrmProductPage({
                                         transition={{ duration: 0.8, ease: "easeOut" }}
                                     >
                                         <Image
-                                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+                                            src="/crm-branches.jpg"
                                             alt="System Preview"
                                             fill
-                                            className="object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500"
+                                            className="object-contain p-4 opacity-80 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500"
                                         />
                                     </motion.div>
                                     {/* Tech overlay grid */}
