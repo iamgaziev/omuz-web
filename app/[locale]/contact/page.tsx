@@ -74,18 +74,22 @@ export default function ContactPage({
                   </div>
 
                   {/* Contact Form */}
-                  <div className="bg-card border border-border p-8 rounded-3xl shadow-lg relative overflow-hidden">
-                     <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-sky-500 to-purple-500" />
+                  <div className="bg-card border border-border p-8 md:p-10 rounded-3xl shadow-lg relative overflow-hidden">
+                     <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-sky-500 via-purple-500 to-pink-500" />
+
+                     <div className="mb-8">
+                        <h2 className="text-2xl font-bold mb-2">{t('illustration_title')}</h2>
+                        <p className="text-muted-foreground text-sm">{t('subtitle')}</p>
+                     </div>
 
                      <ContactForm translations={{
-                        name: t('form.name'),
-                        surname: t('form.surname'),
-                        study_location: t('form.study_location'),
+                        fullname: t('form.fullname'),
                         phone: t('form.phone'),
-                        message: t('form.message'),
                         submit: t('form.submit'),
                         success: t('form.success'),
-                        error: t('form.error')
+                        error: t('form.error'),
+                        fullname_placeholder: t('form.fullname_placeholder'),
+                        phone_placeholder: t('form.phone_placeholder')
                      }} />
                   </div>
 

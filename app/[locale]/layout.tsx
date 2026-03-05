@@ -27,8 +27,8 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({locale, namespace: 'hero'});
- 
+  const t = await getTranslations({ locale, namespace: 'hero' });
+
   return {
     title: t('title'),
     description: t('subtitle'),
@@ -70,7 +70,7 @@ export default async function RootLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages();
-  
+
   // Future-proof for RTL languages
   const dir = ['ar', 'fa', 'he'].includes(locale) ? 'rtl' : 'ltr';
 
@@ -79,9 +79,9 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased mx-auto shadow-2xl min-h-screen`}
       >
-        <ThemeProvider  
+        <ThemeProvider
           attribute="class"
-          defaultTheme="light" 
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
@@ -91,11 +91,11 @@ export default async function RootLayout({
               {children}
             </main>
             <Footer />
-            <ToastContainer 
-              position="top-right" 
-              theme="light" 
+            <ToastContainer
+              position="top-right"
+              theme="dark"
               className="z-[1000000]"
-              toastClassName="bg-white text-slate-900 shadow-2xl rounded-xl border border-slate-100"
+              toastClassName="bg-slate-900 text-white shadow-2xl rounded-xl border border-slate-800"
             />
           </NextIntlClientProvider>
         </ThemeProvider>

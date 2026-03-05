@@ -24,6 +24,11 @@
       "community": "Partnership",
       "quality": "Excellence"
     },
+    "values_desc": {
+      "innovation": "We constantly introduce cutting-edge technologies to create products that shape the future.",
+      "community": "We believe in the power of partnership, building long-term trust with clients and society.",
+      "quality": "We do not compromise on quality. Every project sets the standard for reliability and performance."
+    },
     "team_title": "Our Experts",
     "team_subtitle": "Meet the minds behind Omuz.",
     "mission_title": "Our Mission",
@@ -41,6 +46,7 @@
     "support": "Support 24/7",
     "form": {
       "name": "Name",
+      "fullname": "Full Name",
       "surname": "Surname",
       "study_location": "Where did you study?",
       "phone": "Phone Number",
@@ -48,7 +54,9 @@
       "message": "Message",
       "submit": "Send Message",
       "success": "Message sent successfully!",
-      "error": "Failed to send message. Please try again."
+      "error": "Failed to send message. Please try again.",
+      "fullname_placeholder": "Enter your full name",
+      "phone_placeholder": "+992 XX XXX XX XX"
     },
     "illustration_title": "Contact Us",
     "address_label": "Address",
@@ -500,9 +508,9 @@
     "desc_2_sub": "Collaborating with industry leaders to deliver world-class solutions.",
     "learn_more": "Learn More",
     "alt_team": "Team collaboration",
-    "stat_1_val": "5000+",
+    "stat_1_val": "2000+",
     "stat_2_val": "50+",
-    "stat_3_val": "20+"
+    "stat_3_val": "6+"
   },
   "features_section": {
     "title": "Our Core Competencies",

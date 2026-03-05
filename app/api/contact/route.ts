@@ -3,15 +3,13 @@ import { NextResponse } from 'next/server';
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { name, surname, study_location, phone, message } = body;
+        const { fullname, phone } = body;
 
         // Build the Telegram message text
         const text = `
 📬 *New Contact Form Submission*
-👤 *Name*: ${name} ${surname}
-🎓 *Studied At*: ${study_location}
+👤 *Full Name*: ${fullname}
 📞 *Phone*: ${phone}
-💬 *Message*: ${message}
     `.trim();
 
         // Environment variables or hardcoded values given by the user

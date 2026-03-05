@@ -69,7 +69,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
       {
          name: "Muhammadsodiq Gaziev",
          role: "Frontend Developer",
-         image: "/team/muhammadsodiq.jpg",
+         image: "/team/muhammadsodiq1.jpg",
       },
    ];
 
@@ -101,7 +101,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
          </div>
 
          {/* Stats Section */}
-         <div className="relative z-20 container max-w-7xl mx-auto px-4 py-16 mb-12">
+         <div className="relative z-20 container max-w-7xl mx-auto px-2 py-16 mb-8 mt-[-64px]">
             <div className="bg-background rounded-3xl shadow-xl border border-border p-8 md:p-12">
                <Statistics />
             </div>
@@ -153,9 +153,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
                         </h3>
                         <div className="h-1 w-20 bg-gradient-to-r from-sky-500 to-purple-500 rounded-full mb-4" />
                         <p className="text-muted-foreground">
-                           {/* Placeholder text or verify if values have descriptions in json */}
-                           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                           do eiusmod tempor incididunt ut labore.
+                           {t(`values_desc.${val.key}`)}
                         </p>
                      </div>
                   ))}

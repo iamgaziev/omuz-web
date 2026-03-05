@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Send } from "lucide-react";
+import { Send, User, Phone, Loader2 } from "lucide-react";
 import { toast } from "react-toastify";
 
 export function ContactForm({ translations }: { translations: Record<string, string> }) {
@@ -16,11 +16,8 @@ export function ContactForm({ translations }: { translations: Record<string, str
 
         const formData = new FormData(e.currentTarget);
         const data = {
-            name: formData.get("name"),
-            surname: formData.get("surname"),
-            study_location: formData.get("study_location"),
+            fullname: formData.get("fullname"),
             phone: formData.get("phone"),
-            message: formData.get("message"),
         };
 
         try {
@@ -44,45 +41,54 @@ export function ContactForm({ translations }: { translations: Record<string, str
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-            <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                    <Label htmlFor="name">{translations.name}</Label>
-                    <Input id="name" name="name" required placeholder="John" className="bg-background/50" />
+        <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
+            <div className="space-y-3">
+                <Label htmlFor="fullname" className="text-sm font-semibold tracking-wide uppercase text-muted-foreground">
+                    {translations.fullname}
+                </Label>
+                <div className="relative group">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/60 group-focus-within:text-sky-500 transition-colors">
+                        <User className="w-5 h-5" />
+                    </div>
+                    <Input
+                        id="fullname"
+                        name="fullname"
+                        required
+                        placeholder={translations.fullname_placeholder || ""}
+                        className="pl-12 h-14 text-base bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-muted-foreground/40"
+                    />
                 </div>
-                <div className="space-y-2">
-                    <Label htmlFor="surname">{translations.surname}</Label>
-                    <Input id="surname" name="surname" required placeholder="Doe" className="bg-background/50" />
+            </div>
+
+            <div className="space-y-3">
+                <Label htmlFor="phone" className="text-sm font-semibold tracking-wide uppercase text-muted-foreground">
+                    {translations.phone}
+                </Label>
+                <div className="relative group">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground/60 group-focus-within:text-sky-500 transition-colors">
+                        <Phone className="w-5 h-5" />
+                    </div>
+                    <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        placeholder={translations.phone_placeholder || ""}
+                        className="pl-12 h-14 text-base bg-slate-50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-muted-foreground/40"
+                    />
                 </div>
-            </div>
-
-            <div className="space-y-2">
-                <Label htmlFor="study_location">{translations.study_location}</Label>
-                <Input id="study_location" name="study_location" required placeholder="University / School" className="bg-background/50" />
-            </div>
-
-            <div className="space-y-2">
-                <Label htmlFor="phone">{translations.phone}</Label>
-                <Input id="phone" name="phone" required placeholder="+992 00 000 0000" className="bg-background/50" />
-            </div>
-
-            <div className="space-y-2">
-                <Label htmlFor="message">{translations.message}</Label>
-                <textarea
-                    id="message"
-                    name="message"
-                    required
-                    className="flex min-h-[120px] w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="How can we help you?"
-                />
             </div>
 
             <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-700 hover:to-purple-700 text-white h-12 rounded-xl text-lg shadow-lg shadow-sky-500/20 disabled:opacity-50"
+                className="w-full bg-gradient-to-r from-sky-600 to-purple-600 hover:from-sky-500 hover:to-purple-500 text-white h-14 rounded-2xl text-lg font-semibold shadow-lg shadow-sky-500/20 hover:shadow-xl hover:shadow-sky-500/30 disabled:opacity-50 transition-all duration-300 group"
             >
-                {loading ? "..." : <>{translations.submit} <Send className="w-4 h-4 ml-2" /></>}
+                {loading ? (
+                    <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> ...</>
+                ) : (
+                    <>{translations.submit} <Send className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" /></>
+                )}
             </Button>
         </form>
     );
