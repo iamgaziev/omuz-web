@@ -78,7 +78,7 @@ export default function AboutPage({ params }: { params: { locale: string } }) {
          {/* Hero Section */}
          <div className="relative h-[70vh] flex items-center justify-center overflow-hidden">
             <Image
-               src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+               src="/softclub_image.jpg"
                alt="Office"
                fill
                className="object-cover"
