@@ -6,7 +6,10 @@ export const routing = defineRouting({
   locales: ['en', 'ru', 'tj'],
 
   // Used when no locale matches
-  defaultLocale: 'tj'
+  defaultLocale: 'tj',
+
+  // Disable automatic locale detection based on browser preferences
+  localeDetection: false
 });
 
 // Lightweight wrappers around Next.js' navigation APIs
