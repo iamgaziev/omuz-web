@@ -1,0 +1,10 @@
+services:
+  frontend:
+    image: tajievolimjon/omuz_web_2026
+    container_name: omuz_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3005:3000"
+    restart: unless-stopped
