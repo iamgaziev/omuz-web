@@ -22,7 +22,7 @@ export function LanguageSwitcher() {
     router.replace(
       // @ts-expect-error -- pathname and params are compatible
       { pathname, params },
-      { locale: newLocale }
+      { locale: newLocale, scroll: false }
     );
   };
 

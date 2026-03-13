@@ -1,12 +1,14 @@
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { HeroSlider } from "@/components/sections/hero-slider";
 import { AboutSection } from "@/components/sections/about-section";
+import { AboutHeroSection } from "@/components/sections/about-hero-section";
 import { FeaturesSection } from "@/components/sections/features-section";
-import { ProductSelectionCard } from "@/components/hub/ProductSelectionCard";
-import { Footer } from "@/components/footer";
+import { CoreAdvantagesSection } from "@/components/sections/core-advantages";
+import { CrmGallerySection } from "@/components/sections/crm-gallery";
 import { Clients } from "@/components/sections/partners-marquee";
 import { TestimonialsSection } from "@/components/sections/testimonials";
-import { EcosystemBeam } from "@/components/sections/ecosystem-beam";
+import { StatisticsSection } from "@/components/sections/statistics";
+import { ContactSection } from "@/components/sections/contact-section";
 
 export default async function Home({
   params
@@ -15,23 +17,40 @@ export default async function Home({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'hub' });
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* 1. Hero — main CTA */}
       <HeroSlider />
 
+      {/* 2. Partners — instant social proof */}
       <Clients />
 
-      <AboutSection />
-
-      <EcosystemBeam />
-
+      {/* 3. Features — what the product does */}
       <FeaturesSection />
 
+      {/* 4. Core Advantages — competencies */}
+      <CoreAdvantagesSection />
+
+      {/* 5. Statistics — numbers that prove value */}
+      <StatisticsSection />
+
+      {/* 6. About — who we are */}
+      <AboutSection />
+
+      {/* 7. About Hero image + Team grid */}
+      <AboutHeroSection />
+
+      {/* 8. CRM Gallery — live screenshots */}
+      <CrmGallerySection />
+
+      {/* 9. Testimonials — what others say */}
       <TestimonialsSection />
 
+      {/* 10. Contact — final conversion */}
+      <ContactSection />
     </div>
   );
 }
+
 

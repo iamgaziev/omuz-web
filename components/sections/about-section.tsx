@@ -3,24 +3,24 @@
 import { useTranslations } from "next-intl"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Users, Briefcase, Building2, ArrowRight, Zap, CheckCircle } from "lucide-react"
+import { Building2, ArrowRight, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function AboutSection() {
    const t = useTranslations("about_section")
 
    return (
-      <section className="py-24 relative overflow-hidden bg-slate-50 dark:bg-background">
-         <div className="container max-w-7xl px-4 mx-auto">
+      <section id="about" className="py-24 relative overflow-hidden bg-white dark:bg-[#020617]">
+         <div className="container max-w-7xl px-4 mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
 
                {/* Content Side */}
                <div className="order-2 lg:order-1">
                   <motion.div
-                     initial={{ opacity: 0, x: -20 }}
-                     whileInView={{ opacity: 1, x: 0 }}
+                     initial={{ opacity: 0, y: 10 }}
+                     whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
-                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-500/10 text-sky-600 dark:text-sky-400 text-sm font-medium mb-6"
+                     className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-6"
                   >
                      <Zap className="w-4 h-4" />
                      <span>{t("badge")}</span>
@@ -30,7 +30,7 @@ export function AboutSection() {
                      initial={{ opacity: 0, y: 20 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
-                     className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white leading-[1.1]"
+                     className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white leading-tight"
                   >
                      {t('title')}
                   </motion.h2>
@@ -50,26 +50,26 @@ export function AboutSection() {
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
                      transition={{ delay: 0.2 }}
-                     className="space-y-6"
+                     className="space-y-5"
                   >
-                     <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-2xl bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center shrink-0">
-                           <Users className="w-6 h-6 text-sky-600 dark:text-sky-400" />
+                     <div className="flex gap-4 group p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                           <Zap className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t('desc_1').split(',')[0]}</h3>
+                           <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{t('desc_1').split(',')[0]}</h3>
                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                               {t("desc_1_sub")}
                            </p>
                         </div>
                      </div>
 
-                     <div className="flex gap-4">
-                        <div className="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center shrink-0">
-                           <Building2 className="w-6 h-6 text-cyan-600 dark:text-cyan-400" />
+                     <div className="flex gap-4 group p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                           <Building2 className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t('stats.partners')}</h3>
+                           <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{t('stats.partners')}</h3>
                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                               {t("desc_2_sub")}
                            </p>
@@ -82,10 +82,13 @@ export function AboutSection() {
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
                      transition={{ delay: 0.3 }}
-                     className="mt-10"
+                     className="mt-8"
                   >
-                     <Button size="lg" className="rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-200 px-8 h-12">
-                        {t("learn_more")} <ArrowRight className="ml-2 w-4 h-4" />
+                     <Button asChild size="lg" className="rounded-full font-semibold bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 shadow-lg shadow-primary/20 transition-all">
+                        <a href="#features">
+                           {t("learn_more")}
+                           <ArrowRight className="ml-2 w-4 h-4" />
+                        </a>
                      </Button>
                   </motion.div>
                </div>
@@ -96,7 +99,7 @@ export function AboutSection() {
                      initial={{ opacity: 0, scale: 0.95 }}
                      whileInView={{ opacity: 1, scale: 1 }}
                      viewport={{ once: true }}
-                     className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800"
+                     className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700"
                   >
                      <div className="aspect-[4/5] relative">
                         <Image
@@ -105,7 +108,7 @@ export function AboutSection() {
                            fill
                            className="object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                      </div>
 
                      {/* Floating Stats Card */}
@@ -114,28 +117,27 @@ export function AboutSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.4 }}
-                        className="absolute bottom-6 left-6 right-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-slate-200 dark:border-slate-800"
+                        className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-xl p-5 border border-slate-200/50 dark:border-slate-700/50"
                      >
-                        <div className="grid grid-cols-3 gap-4 text-center divide-x divide-slate-200 dark:divide-slate-800">
+                        <div className="grid grid-cols-3 gap-4 text-center">
                            <div>
-                              <div className="text-2xl font-bold text-sky-600 dark:text-sky-400">{t('stat_1_val')}</div>
-                              <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">{t('stats.students')}</div>
+                              <div className="text-2xl font-bold text-primary">{t('stat_1_val')}</div>
+                              <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">{t('stats.students')}</div>
+                           </div>
+                           <div className="border-x border-slate-200 dark:border-slate-700">
+                              <div className="text-2xl font-bold text-primary">{t('stat_2_val')}</div>
+                              <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">{t('stats.mentors')}</div>
                            </div>
                            <div>
-                              <div className="text-2xl font-bold text-sky-600 dark:text-sky-400">{t('stat_2_val')}</div>
-                              <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">{t('stats.mentors')}</div>
-                           </div>
-                           <div>
-                              <div className="text-2xl font-bold text-sky-600 dark:text-sky-400">{t('stat_3_val')}</div>
-                              <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mt-1">{t('stats.partners')}</div>
+                              <div className="text-2xl font-bold text-primary">{t('stat_3_val')}</div>
+                              <div className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">{t('stats.partners')}</div>
                            </div>
                         </div>
                      </motion.div>
                   </motion.div>
 
-                  {/* Decorative Elements */}
-                  <div className="absolute -z-10 top-1/2 right-0 translate-x-1/3 -translate-y-1/2 w-96 h-96 bg-sky-200/50 dark:bg-sky-500/20 rounded-full blur-3xl opacity-50" />
-                  <div className="absolute -z-10 bottom-0 left-0 -translate-x-1/3 translate-y-1/3 w-64 h-64 bg-cyan-200/50 dark:bg-cyan-500/20 rounded-full blur-3xl opacity-50" />
+                  {/* Decorative Glow */}
+                  <div className="absolute -z-10 top-1/2 right-0 translate-x-1/4 -translate-y-1/2 w-72 h-72 bg-primary/15 rounded-full blur-[100px] pointer-events-none" />
                </div>
 
             </div>

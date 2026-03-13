@@ -21,7 +21,7 @@ export const ProductFeatureList = ({ features }: ProductFeatureListProps) => {
               viewport={{ once: true }}
               className="flex items-start space-x-4 p-4 rounded-lg border bg-card hover:shadow-md transition-shadow"
             >
-              <CheckCircle2 className="h-6 w-6 text-green-500 mt-1 shrink-0" />
+              <CheckCircle2 className="h-6 w-6 text-primary mt-1 shrink-0" />
               <p className="text-lg font-medium leading-relaxed">{feature}</p>
             </motion.div>
           ))}
