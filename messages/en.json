@@ -179,7 +179,7 @@
     "gallery_branches_desc": "Detailed table with filters"
   },
   "hero": {
-    "title": "Ditch Spreadsheets — Run Your Center on CRM OMUZ",
+    "title": "Manage all processes of your educational center in one system",
     "subtitle": "One platform for students, finances, scheduling, attendance & SMS campaigns. From enrollment to employment — track the entire student lifecycle.",
     "live_badge": "SoftClub CRM is live!",
     "badge": "All-in-One Education Center Platform",
@@ -465,12 +465,12 @@
     "title": "See the System in Action",
     "subtitle": "Real screenshots of the CRM OMUZ platform",
     "dashboard": {
-      "title": "Dashboard",
-      "desc": "Full statistics: students, groups, attendance and revenue"
+      "title": "Dashboard & KPIs",
+      "desc": "Core center metrics on a single screen with interactive charts"
     },
     "dashboard_2": {
-      "title": "Dashboard 2",
-      "desc": "Full statistics: students, groups, attendance, leads and revenue"
+      "title": "Process Management",
+      "desc": "Detailed control over educational processes and results"
     },
     "enroll": {
       "title": "Enrollment",
