@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 
 const clients = [
-  { name: "Softclub Academy", logo: "/partners/softclub_logo.svg" },
+  { name: "Softclub Academy", logo: "/partners/softclub.svg" },
   { name: "Intellect", logo: "/partners/intelect_logo.svg" },
   { name: "Dastai Alo", logo: "/partners/dastaiAalo_logo.svg" },
   { name: "Ilm Omuz", logo: "/partners/ilmOmuz_logo.svg" },

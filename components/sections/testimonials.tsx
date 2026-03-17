@@ -11,7 +11,7 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       name: "Shahbozi Abdulloh",
-      role: "Co-founder CEO Intelect-edu",
+      role: t("shahbozi_role"),
       content: t("jamshed"),
       image: "/shahbozi_abdullo.jpg",
     },
