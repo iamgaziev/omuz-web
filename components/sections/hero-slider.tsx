@@ -64,7 +64,7 @@ export function HeroSlider() {
                 variant="outline"
                 className="h-14 px-8 rounded-full text-base font-semibold border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
               >
-                <a href="#features">
+                <a href="#modules">
                   {t("cta_products")}
                 </a>
               </Button>
@@ -121,7 +121,7 @@ export function HeroSlider() {
               >
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                  <span className="text-sm font-semibold text-slate-900 dark:text-white">99.9% Uptime</span>
+                  <span className="text-sm font-semibold text-slate-900 dark:text-white">{t("uptime")}</span>
                 </div>
               </motion.div>
             </div>

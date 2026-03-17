@@ -5,12 +5,12 @@ import { useTranslations } from "next-intl"
 import Image from "next/image"
 
 const clients = [
+  { name: "Softclub Academy", logo: "/partners/softclub_academy.png" },
+  { name: "Intellect", logo: "/partners/intellect.png" },
   { name: "Dastai Alo", logo: "/partners/dastai_alo.png" },
   { name: "Ilm Omuz", logo: "/partners/ilm_omuz.png" },
   { name: "Rushdi Donish", logo: "/partners/rushdi_donish.png" },
   { name: "DLC", logo: "/partners/dlc.png" },
-  { name: "Softclub", logo: "/partners/softclub_academy.png" },
-  { name: "Intellect", logo: "/partners/intellect.png" },
   { name: "Smart", logo: "/partners/smart.svg" },
 ]
 
@@ -21,30 +21,26 @@ function ClientCard({ name, logo, description, label }: {
   label: string
 }) {
   return (
-    <div className="mx-3 flex flex-col items-start gap-3 p-6 w-[280px] shrink-0 rounded-2xl
+    <div className="mx-3 flex flex-col items-start gap-3 p-6 w-[320px] shrink-0 rounded-2xl
             bg-white dark:bg-slate-800/50
             border border-slate-200 dark:border-slate-700
             shadow-sm hover:shadow-lg hover:border-primary/30
             transition-all duration-300 group"
     >
-      <div className="flex items-center gap-3 w-full">
-        <div className="p-1.5 rounded-xl bg-white dark:bg-slate-700/50 group-hover:bg-slate-50 dark:group-hover:bg-slate-700 transition-colors overflow-hidden flex items-center justify-center w-11 h-11">
-          <Image
-            src={logo}
-            alt={name}
-            width={40}
-            height={40}
-            className="w-9 h-9 object-contain rounded-lg"
-          />
-        </div>
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+      <div className="w-full h-24 mb-3 relative flex items-center justify-start rounded-xl overflow-hidden p-2">
+        <Image
+          src={logo}
+          alt={name}
+          fill
+          className="object-contain object-left md:object-center drop-shadow-sm brightness-105"
+        />
+      </div>
+      <div className="w-full flex-grow flex flex-col justify-start">
+        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
           {name}
         </h3>
-      </div>
-
-      <div className="w-full">
-        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mb-1.5">{label}</p>
-        <div className="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900/50 text-slate-600 dark:text-slate-400 text-sm">
+        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mb-1.5 uppercase tracking-wide">{label}</p>
+        <div className="w-full px-3 py-2 mt-auto rounded-lg bg-slate-50 dark:bg-slate-900/50 text-slate-600 dark:text-slate-400 text-sm">
           {description}
         </div>
       </div>

@@ -184,9 +184,10 @@
     "live_badge": "SoftClub CRM is live!",
     "badge": "All-in-One Education Center Platform",
     "cta_demo": "Get a Free Demo",
-    "cta_products": "See All 13 Modules",
+    "cta_products": "See All 15 Modules",
     "stat_label": "Connected Centers",
-    "stat_value": "Across all branches"
+    "stat_value": "Across all branches",
+    "uptime": "99.9% Uptime"
   },
   "stats": {
     "centers": "Connected Centers",
@@ -461,9 +462,31 @@
       }
     }
   },
+  "modules_section": {
+    "badge": "Unified Ecosystem",
+    "title_highlight": "modules",
+    "title_rest": "in 1 platform",
+    "subtitle": "Instead of using 10 different apps, manage your entire education center from a single system.",
+    "crm": { "title": "CRM & Sales", "desc": "Receive incoming leads and convert them to students" },
+    "students": { "title": "Students", "desc": "Unified student database and learning history" },
+    "groups": { "title": "Groups", "desc": "Flexible management of educational groups" },
+    "parents": { "title": "Parents", "desc": "Private portal for parents to track child progress" },
+    "hr": { "title": "Mentors & HR", "desc": "Management of staff, payroll, and their lessons" },
+    "courses": { "title": "Courses", "desc": "Database of learning materials and lesson plans" },
+    "timetable": { "title": "Timetable", "desc": "Smart scheduling and calendar without conflicts" },
+    "journal": { "title": "Journal & Grades", "desc": "Digital journal for progress tracking" },
+    "finance": { "title": "Finance", "desc": "Cash register, payments, debts, and expenses" },
+    "branches": { "title": "Branches", "desc": "Manage multiple locations from a single screen" },
+    "documents": { "title": "Documents", "desc": "Automated generation of certificates and contracts" },
+    "gamification": { "title": "Gamification", "desc": "Coins and ratings to motivate students" },
+    "jobs": { "title": "Job Board", "desc": "Connecting qualified graduates with employers" },
+    "sms": { "title": "SMS Automation", "desc": "Automated messages for parents and students" },
+    "analytics": { "title": "Analytics", "desc": "Modern dashboard and 100% accurate reports" }
+  },
   "crm_gallery": {
     "title": "See the System in Action",
     "subtitle": "Real screenshots of the CRM OMUZ platform",
+    "live_preview": "Live Preview",
     "dashboard": {
       "title": "Dashboard & KPIs",
       "desc": "Core center metrics on a single screen with interactive charts"

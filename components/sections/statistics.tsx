@@ -56,7 +56,7 @@ export function StatisticsSection() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-b from-slate-950 via-white via-[10%] to-white dark:from-slate-950 dark:via-[#020617] dark:via-[10%] dark:to-[#020617] relative overflow-hidden">
+    <section className="py-20 bg-white dark:bg-[#020617] relative overflow-hidden transition-colors duration-500">
       {/* Subtle glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 

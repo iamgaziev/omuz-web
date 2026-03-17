@@ -25,7 +25,7 @@ export function CoreAdvantagesSection() {
   const t = useTranslations("core_advantages")
 
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-slate-50 via-slate-950 via-[10%] to-slate-950 dark:from-[#0f172a] dark:via-slate-950 dark:via-[10%] dark:to-slate-950 relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-slate-50 dark:bg-slate-950 relative overflow-hidden">
       {/* Subtle grid */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
@@ -37,14 +37,14 @@ export function CoreAdvantagesSection() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-16 lg:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 text-xs sm:text-sm font-medium mb-6 uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium mb-6 uppercase tracking-wider shadow-sm dark:shadow-none">
             <Layers className="w-4 h-4" />
             {t("badge")}
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-slate-900 dark:text-white tracking-tight">
             {t("title")}
           </h2>
-          <p className="text-lg text-slate-400 font-light">
+          <p className="text-lg text-slate-600 dark:text-slate-400 font-light">
             {t("subtitle")}
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export function CoreAdvantagesSection() {
               key={item.key}
               variants={FADE_UP}
               whileHover={{ y: -8 }}
-              className="group relative bg-slate-900/80 border border-slate-800 rounded-2xl p-6 lg:p-8 hover:border-slate-700 hover:bg-slate-900 transition-all duration-300"
+              className="group relative bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 lg:p-8 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-300 shadow-sm hover:shadow-md dark:shadow-none"
             >
               {/* Icon */}
               <div className={`w-12 h-12 rounded-xl ${item.bg} border flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
@@ -70,10 +70,10 @@ export function CoreAdvantagesSection() {
               </div>
 
               {/* Text */}
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-primary transition-colors">
                 {t(`cards.${item.key}.title`)}
               </h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {t(`cards.${item.key}.desc`)}
               </p>
             </motion.div>

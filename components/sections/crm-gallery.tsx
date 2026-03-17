@@ -25,7 +25,7 @@ export function CrmGallerySection() {
   const t = useTranslations("crm_gallery")
 
   return (
-    <section className="py-24 lg:py-32 bg-gradient-to-b from-slate-950 via-white via-[10%] to-white dark:from-slate-950 dark:via-slate-900 dark:via-[10%] dark:to-slate-900 relative overflow-hidden">
+    <section className="py-24 lg:py-32 bg-slate-50 dark:bg-slate-900 relative overflow-hidden transition-colors duration-500">
       {/* Background glows */}
       <div className="absolute -top-[30%] -right-[15%] w-[50vw] h-[50vw] max-w-[700px] max-h-[700px] bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute -bottom-[30%] -left-[15%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-sky-500/10 dark:bg-sky-500/5 rounded-full blur-[120px] pointer-events-none" />
@@ -45,7 +45,7 @@ export function CrmGallerySection() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-medium text-xs sm:text-sm mb-6 border border-purple-200/50 dark:border-purple-800/50"
           >
             <span className="w-2 h-2 rounded-full bg-purple-500 animate-pulse" />
-            Live Preview
+            {t("live_preview")}
           </motion.div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6 text-slate-900 dark:text-white tracking-tight">
             {t("title")}

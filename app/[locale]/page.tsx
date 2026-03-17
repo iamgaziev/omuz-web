@@ -9,6 +9,7 @@ import { Clients } from "@/components/sections/partners-marquee";
 import { TestimonialsSection } from "@/components/sections/testimonials";
 import { StatisticsSection } from "@/components/sections/statistics";
 import { ContactSection } from "@/components/sections/contact-section";
+import { PlatformsModulesSection } from "@/components/sections/modules-section";
 
 export default async function Home({
   params
@@ -23,31 +24,31 @@ export default async function Home({
       {/* 1. Hero — main CTA */}
       <HeroSlider />
 
-      {/* 2. Partners — instant social proof */}
-      <Clients />
-
-      {/* 3. Features — what the product does */}
-      <FeaturesSection />
-
       {/* 4. Core Advantages — competencies */}
       <CoreAdvantagesSection />
 
-      {/* 5. Statistics — numbers that prove value */}
+      {/* 5. 13 Modules Grid - Ecosystem */}
+      <PlatformsModulesSection />
+
+      {/* 6. Statistics — numbers that prove value */}
       <StatisticsSection />
 
-      {/* 6. About — who we are */}
+      {/* 7. About — who we are */}
       <AboutSection />
 
-      {/* 7. About Hero image + Team grid */}
+      {/* 8. About Hero image + Team grid */}
       <AboutHeroSection />
 
-      {/* 8. CRM Gallery — live screenshots */}
+      {/* 9. CRM Gallery — live screenshots */}
       <CrmGallerySection />
 
-      {/* 9. Testimonials — what others say */}
+      {/* 10. Partners — instant social proof */}
+      <Clients />
+
+      {/* 11. Testimonials — what others say */}
       <TestimonialsSection />
 
-      {/* 10. Contact — final conversion */}
+      {/* 12. Contact — final conversion */}
       <ContactSection />
     </div>
   );
