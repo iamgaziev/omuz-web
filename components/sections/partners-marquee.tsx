@@ -30,13 +30,13 @@ function ClientCard({ name, logo, description, label }: {
       {/* Decorative background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[200px] h-[100px] bg-sky-500/10 dark:bg-sky-500/5 blur-[50px] pointer-events-none rounded-full" />
       
-      {/* Rounded Logo Container */}
-      <div className="w-24 h-24 relative flex items-center justify-center rounded-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/5 shadow-inner p-4 group-hover:scale-110 transition-transform duration-500 z-10">
+      {/* Logo Container (Original Shape) */}
+      <div className="w-full h-24 relative flex items-center justify-center bg-transparent group-hover:scale-105 transition-transform duration-500 z-10">
         <Image
           src={logo}
           alt={name}
           fill
-          className="object-contain p-3 drop-shadow-sm transition-all duration-300 group-hover:drop-shadow-md"
+          className="object-contain p-2 drop-shadow-sm transition-all duration-300 group-hover:drop-shadow-md brightness-105"
         />
       </div>
 
