@@ -85,7 +85,7 @@ export function HeroSlider() {
               {/* Dashboard screenshot */}
               <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-2xl bg-white dark:bg-slate-900">
                 <Image
-                  src="/crm-main.jpg"
+                  src="/omuz-crm-dashboard.jpg"
                   alt="OMUZ CRM Dashboard"
                   width={800}
                   height={500}
