@@ -15,7 +15,7 @@ const STAGGER = {
 }
 
 const screenshots = [
-  { src: "/crm-main.jpg?v=1.1", key: "dashboard", span: "" },
+  { src: "/crm-main.jpg", key: "dashboard", span: "" },
   { src: "/image.png", key: "dashboard_2", span: "" },
   { src: "/crm-chart.png", key: "enroll", span: "md:col-span-1" },
   { src: "/crm-branches.jpg", key: "graduates", span: "md:col-span-1" },
