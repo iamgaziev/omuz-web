@@ -57,7 +57,7 @@ export function AboutSection() {
                            <Zap className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                           <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{t('desc_1').split(',')[0]}</h3>
+                           <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{t('desc_1_title')}</h3>
                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                               {t("desc_1_sub")}
                            </p>

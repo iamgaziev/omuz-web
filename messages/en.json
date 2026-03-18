@@ -6,7 +6,7 @@
     "services": "Services",
     "crm": "CRM OMUZ",
     "contact": "Contact",
-    "partners": "Partners",
+    "partners": "Our Partners",
     "login": "Login",
     "view_details": "Details",
     "theme": "Theme",
@@ -15,9 +15,9 @@
   },
   "about_page": {
     "title": "Omuz Company",
-    "subtitle": "Innovating Technology for Business Growth",
+    "subtitle": "Make your educational center processes up to 10 times more efficient",
     "story_title": "Our Story",
-    "story_desc": "Founded with a vision to revolutionize the tech landscape in Tajikistan, Omuz has grown into a leading software and digital services ecosystem.",
+    "story_desc": "Omuz was launched with the goal of improving the quality of educational centers and education in our country. Today, we offer an ecosystem that fully meets international standards.",
     "values_title": "Our Values",
     "values": {
       "innovation": "Innovation",
@@ -63,7 +63,7 @@
     "info": {
       "address": "Dushanbe, Tajikistan",
       "email": "info@omuz.tj",
-      "phone": "(+992) 558-700-900",
+      "phone": "(+992) 900 73 77 04",
       "phone_placeholder": "+992 00 000 00 00",
       "email_placeholder": "example@gmail.com"
     },
@@ -181,7 +181,7 @@
   "hero": {
     "title": "Manage all processes of your educational center in one system",
     "subtitle": "One platform for students, finances, scheduling, attendance & SMS campaigns. From enrollment to employment — track the entire student lifecycle.",
-    "live_badge": "SoftClub CRM is live!",
+    "live_badge": "CRM OMUZ is live!",
     "badge": "All-in-One Education Center Platform",
     "cta_demo": "Get a Free Demo",
     "cta_products": "See All 15 Modules",
@@ -192,7 +192,8 @@
   "stats": {
     "centers": "Connected Centers",
     "students": "Users in System",
-    "experience": "CRM Modules"
+    "experience": "CRM Modules",
+    "k_plus": "k+"
   },
   "advantages": {
     "title": "Why CRM OMUZ?",
@@ -210,17 +211,17 @@
     }
   },
   "partners": {
-    "title": "Our Partners",
-    "subtitle": "Leading centers and academies use the OMUZ system",
+    "title": "Academies that trust us",
+    "subtitle": "Educational centers that use the OMUZ system.",
     "direction_label": "Field",
     "clients": [
-      { "description": "IT Academy" },
-      { "description": "Education Center" },
-      { "description": "Programming School" },
-      { "description": "Innovative Learning" },
-      { "description": "Learning Complex" },
-      { "description": "Digital Learning Center" },
-      { "description": "Innovation Center" }
+      { "description": "Programming courses" },
+      { "description": "University Entrance Prep (Clusters 4-5)" },
+      { "description": "Medical University Preparation" },
+      { "description": "Language Learning Center" },
+      { "description": "Language Learning Center" },
+      { "description": "Language Learning Center" },
+      { "description": "Online courses marketplace" }
     ]
   },
   "testimonials": {
@@ -234,6 +235,7 @@
     "davron": "As a developer, I'm impressed by OMUZ's technical quality. High performance, modern technology, and flawless optimization — this is truly a high-level product.",
     "davron_role": "Frontend Developer",
     "saidumron": "Using the platform allowed us to streamline all educational processes. The intuitive interface and fast system significantly increased the efficiency of our team.",
+    "shahbozi": "Since our IT center connected to the OMUZ system, managing all educational processes has become much easier. OMUZ is truly the best partner for monitoring the quality of education.",
     "shahbozi_role": "Co-founder CEO Intelect-edu",
     "saidumron_role": "Smart",
     "hasanjon": "The CRM program greatly facilitates our work. All data is now in one place, making it easier to track tasks, students, and payments. The workflow has become more organized and efficient.",
@@ -296,7 +298,7 @@
   },
   "contact_section": {
     "title": "Try the System for Free",
-    "subtitle": "Leave your details — we'll give you a full walkthrough of all 13 modules in one day.",
+    "subtitle": "Leave your details — we'll give you a full walkthrough of all 15 modules in one day.",
     "illustration_title": "Free Demo",
     "map_implementation": "Map",
     "form": {
@@ -332,7 +334,7 @@
     "info": "Company",
     "contact": "Contacts",
     "address": "Dushanbe, Tajikistan",
-    "phone": "(+992) 558-700-900",
+    "phone": "(+992) 900 73 77 04",
     "email": "info@omuz.tj",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
@@ -351,25 +353,26 @@
     "join_students_subtitle": "Join us today."
   },
   "about_section": {
-    "title": "Why SoftClub CRM?",
-    "subtitle": "Not a generic CRM — built from day one for education centers. 13 modules, 7 access roles, multi-branch management — all in one place.",
-    "desc_1": "SoftClub CRM replaces scattered spreadsheets, messengers, and paper records with a single unified platform.",
+    "title": "Why Omuz Platform?",
+    "subtitle": "Not a generic CRM — built from day one for education centers. 15 modules, 7 access roles, multi-branch management — all in one place.",
+    "desc_1": "Omuz Platform replaces scattered spreadsheets, messengers, and paper records with a single unified platform.",
+    "desc_1_title": "Advantages of the Omuz Platform",
     "stats": {
       "partners": "CRM Modules",
-      "students": "Active Users",
-      "mentors": "Access Roles"
+      "students": "Users in System",
+      "mentors": "Connected Centers"
     },
     "badge": "All-in-One Platform",
     "desc_1_sub": "Students, teachers, finances, attendance, SMS campaigns & scheduling — manage everything from one dashboard.",
-    "desc_2_sub": "Gamification, job board, and advanced analytics take your center to the next level.",
+    "desc_2_sub": "Gamification, an alumni control panel, and various statistics make the educational center's workflow and staff operations up to 10x easier.",
     "learn_more": "Request Demo",
-    "alt_team": "SoftClub Team",
-    "stat_1_val": "2000+",
+    "alt_team": "Omuz Team",
+    "stat_1_val": "3k+",
     "stat_2_val": "7",
-    "stat_3_val": "13"
+    "stat_3_val": "15+"
   },
   "features_section": {
-    "title": "13 Modules — One Platform",
+    "title": "15 Modules — One Platform",
     "subtitle": "Each module solves real operational challenges that education centers face daily.",
     "badge": "Modules",
     "cards": {

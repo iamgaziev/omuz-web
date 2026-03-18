@@ -12,7 +12,7 @@ export function TestimonialsSection() {
     {
       name: "Shahbozi Abdulloh",
       role: t("shahbozi_role"),
-      content: t("jamshed"),
+      content: t("shahbozi"),
       image: "/shahbozi_abdullo.jpg",
     },
     {

@@ -73,33 +73,56 @@ export function PlatformsModulesSection() {
           </p>
         </motion.div>
 
-        {/* 15 Modules Grid - Bento Style */}
-        <motion.div
-          variants={STAGGER}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 lg:gap-4 justify-center items-stretch"
-        >
-          {modules.map((mod) => (
-            <motion.div
-              key={mod.key}
-              variants={FADE_UP}
-              whileHover={{ y: -4, scale: 1.02 }}
-              className="group flex flex-col items-center text-center p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-primary/50 transition-all duration-300"
-            >
-              <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${mod.bg} group-hover:scale-110 transition-transform duration-300`}>
-                <mod.icon className={`w-6 h-6 ${mod.color}`} />
+        {/* 15 Modules in 3 Sliding Rows */}
+        <div className="space-y-4 lg:space-y-6">
+          {[
+            modules.slice(0, 5),
+            modules.slice(5, 10),
+            modules.slice(10, 15)
+          ].map((row, rowIndex) => (
+            <div key={rowIndex} className="relative flex overflow-x-hidden group">
+              <div 
+                className={`flex w-max shrink-0 group-hover:[animation-play-state:paused] ${rowIndex === 1 ? 'animate-marquee-reverse' : 'animate-marquee'}`}
+                style={{ animationDuration: '35s' }}
+              >
+                {/* First set */}
+                {row.map((mod) => (
+                  <div
+                    key={`set1-${mod.key}`}
+                    className="group mx-2 lg:mx-3 flex flex-col items-center text-center p-5 lg:p-6 w-[280px] sm:w-[300px] shrink-0 rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-primary/50 transition-all duration-300"
+                  >
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${mod.bg} group-hover:scale-110 transition-transform duration-300`}>
+                      <mod.icon className={`w-6 h-6 ${mod.color}`} />
+                    </div>
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-2 text-[15px] leading-tight group-hover:text-primary transition-colors whitespace-normal">
+                      {t(`${mod.key}.title`)}
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed whitespace-normal h-[36px] flex items-center justify-center">
+                      {t(`${mod.key}.desc`)}
+                    </p>
+                  </div>
+                ))}
+                {/* Second set (duplicated for infinite scroll effect) */}
+                {row.map((mod) => (
+                  <div
+                    key={`set2-${mod.key}`}
+                    className="group mx-2 lg:mx-3 flex flex-col items-center text-center p-5 lg:p-6 w-[280px] sm:w-[300px] shrink-0 rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg dark:hover:border-primary/50 transition-all duration-300"
+                  >
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${mod.bg} group-hover:scale-110 transition-transform duration-300`}>
+                      <mod.icon className={`w-6 h-6 ${mod.color}`} />
+                    </div>
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-2 text-[15px] leading-tight group-hover:text-primary transition-colors whitespace-normal">
+                      {t(`${mod.key}.title`)}
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed whitespace-normal h-[36px] flex items-center justify-center">
+                      {t(`${mod.key}.desc`)}
+                    </p>
+                  </div>
+                ))}
               </div>
-              <h3 className="font-bold text-slate-900 dark:text-white mb-2 text-[15px] leading-tight group-hover:text-primary transition-colors">
-                {t(`${mod.key}.title`)}
-              </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed max-w-[200px]">
-                {t(`${mod.key}.desc`)}
-              </p>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
       </div>
     </section>

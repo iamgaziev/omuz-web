@@ -75,7 +75,7 @@ export function Clients() {
 
       <div className="container relative mx-auto px-4 md:px-6 mb-12 z-20">
         <div className="flex flex-col items-center text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white max-w-xl mx-auto leading-[1.1]">
             {t("title")}
           </h2>
           <p className="max-w-2xl text-lg text-slate-600 dark:text-slate-400">

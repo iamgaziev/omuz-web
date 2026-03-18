@@ -211,6 +211,10 @@ body {
   animation: scroll-marquee 30s linear infinite;
 }
 
+.animate-marquee-reverse {
+  animation: scroll-marquee 30s linear infinite reverse;
+}
+
 @keyframes scroll-marquee {
   from {
     transform: translateX(0);

@@ -50,9 +50,9 @@ export function StatisticsSection() {
   const t = useTranslations("stats")
 
   const stats = [
-    { value: 2, suffix: "", label: t("centers") },
-    { value: 5, suffix: "K+", label: t("students") },
-    { value: 6, suffix: "+", label: t("experience") },
+    { value: 7, suffix: "", label: t("centers") },
+    { value: 3, suffix: t("k_plus"), label: t("students") },
+    { value: 15, suffix: "+", label: t("experience") },
   ]
 
   return (

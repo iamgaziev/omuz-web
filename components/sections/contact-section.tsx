@@ -157,7 +157,7 @@ export function ContactSection() {
                   <div className="space-y-4 text-left w-full">
                     <div className="flex items-center gap-3 p-3 bg-white/50 dark:bg-slate-800/50 rounded-xl">
                       <div className="w-2 h-2 rounded-full bg-primary" />
-                      <span className="text-sm text-slate-600 dark:text-slate-300">(+992) 558-700-900</span>
+                      <span className="text-sm text-slate-600 dark:text-slate-300">(+992) 900 73 77 04</span>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-white/50 dark:bg-slate-800/50 rounded-xl">
                       <div className="w-2 h-2 rounded-full bg-primary" />
@@ -175,36 +175,7 @@ export function ContactSection() {
 
         </div>
 
-        {/* Map Section */}
-        <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.5, delay: 0.4 }}
-           className="mt-16 sm:mt-24 w-full"
-        >
-           <div className="text-center mb-8">
-             <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-               {t("map_implementation") || "Харита"}
-             </h3>
-           </div>
-           
-           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-2 rounded-3xl shadow-lg relative h-[350px] md:h-[450px] overflow-hidden group">
-              <div className="absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-primary/80 to-primary/40 rounded-t-3xl z-10" />
-              
-              <div className="w-full h-full rounded-2xl overflow-hidden relative">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d871.4000973259053!2d68.75917633309824!3d38.56373114064735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38b5d1e787e0d7f1%3A0xf9e530d3017a4375!2z0JDQutCw0LTQtdC80LjRj9C4INCx0LDRgNC90L7QvNCw0YHQvtC30LjQuCBTb2Z0Y2x1Yg!5e0!3m2!1sru!2s!4v1771989027602!5m2!1sru!2s" 
-                  className="absolute inset-0 w-full h-full border-0 grayscale-[10%] contrast-110 dark:grayscale-[20%] dark:invert-[90%] dark:hue-rotate-[180deg] transition-all duration-500 group-hover:grayscale-0 group-hover:contrast-100 dark:group-hover:invert-0 dark:group-hover:grayscale-0 dark:group-hover:hue-rotate-0" 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-                {/* Dark overlay — disappears on hover */}
-                <div className="absolute inset-0 bg-slate-900/10 dark:bg-slate-900/50 pointer-events-none transition-opacity duration-500 group-hover:opacity-0" />
-              </div>
-           </div>
-        </motion.div>
+
 
       </div>
     </section>
