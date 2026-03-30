@@ -36,9 +36,6 @@ export default async function Home({
       {/* 7. About — who we are */}
       <AboutSection />
 
-      {/* 8. About Hero image + Team grid */}
-      <AboutHeroSection />
-
       {/* 9. CRM Gallery — live screenshots */}
       <CrmGallerySection />
 

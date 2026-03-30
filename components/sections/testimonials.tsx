@@ -19,13 +19,13 @@ export function TestimonialsSection() {
       name: "Saidumron Rahmonov",
       role: t("saidumron_role"),
       content: t("saidumron"),
-      image: "/saidumron_rahmonov.jpg",
+      image: "/saidumron.jpg",
     },
     {
       name: "Hasanjon Aliev",
       role: t("hasanjon_role"),
       content: t("hasanjon"),
-      image: "/hasanjon_aliev.jpg",
+      image: "/hasan aliev.jpg",
     },
   ];
 

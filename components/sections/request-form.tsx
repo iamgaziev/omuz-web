@@ -17,24 +17,44 @@ export function RequestFormSection({ imageSrc }: RequestFormSectionProps) {
   const t = useTranslations("request_form")
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate API call
-    setTimeout(() => {
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+    }
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      })
+
+      if (res.ok) {
+        toast.success(t("success"), {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        e.currentTarget.reset();
+      } else {
+        toast.error("Error");
+      }
+    } catch (err) {
+      toast.error("Error");
+    } finally {
       setIsSubmitting(false)
-      toast.success(t("success"), {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }, 1500)
+    }
   }
 
   return (
@@ -69,6 +89,7 @@ export function RequestFormSection({ imageSrc }: RequestFormSectionProps) {
                   {t("name_placeholder")}
                 </label>
                 <Input 
+                  name="name"
                   placeholder={t("name_placeholder")} 
                   className="h-12 rounded-xl bg-slate-50 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800 transition-all focus:ring-2 focus:ring-sky-500/20"
                   required
@@ -81,6 +102,7 @@ export function RequestFormSection({ imageSrc }: RequestFormSectionProps) {
                     {t("phone_placeholder")}
                   </label>
                   <Input 
+                    name="phone"
                     placeholder={t("phone_placeholder")} 
                     type="tel"
                     className="h-12 rounded-xl bg-slate-50 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800 transition-all focus:ring-2 focus:ring-sky-500/20"
@@ -92,6 +114,7 @@ export function RequestFormSection({ imageSrc }: RequestFormSectionProps) {
                     {t("email_placeholder")}
                   </label>
                   <Input 
+                    name="email"
                     placeholder={t("email_placeholder")} 
                     type="email"
                     className="h-12 rounded-xl bg-slate-50 dark:bg-slate-950/50 border-slate-200 dark:border-slate-800 transition-all focus:ring-2 focus:ring-sky-500/20"
