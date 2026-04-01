@@ -1,8 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { HeroSlider } from "@/components/sections/hero-slider";
 import { AboutSection } from "@/components/sections/about-section";
-import { AboutHeroSection } from "@/components/sections/about-hero-section";
-import { FeaturesSection } from "@/components/sections/features-section";
 import { CoreAdvantagesSection } from "@/components/sections/core-advantages";
 import { CrmGallerySection } from "@/components/sections/crm-gallery";
 import { Clients } from "@/components/sections/partners-marquee";
@@ -24,28 +22,28 @@ export default async function Home({
       {/* 1. Hero — main CTA */}
       <HeroSlider />
 
-      {/* 4. Core Advantages — competencies */}
+      {/* 2. Core Advantages — competencies */}
       <CoreAdvantagesSection />
 
-      {/* 5. 13 Modules Grid - Ecosystem */}
+      {/* 3. 13 Modules Grid - Ecosystem */}
       <PlatformsModulesSection />
 
-      {/* 6. Statistics — numbers that prove value */}
+      {/* 4. Statistics — numbers that prove value */}
       <StatisticsSection />
 
-      {/* 7. About — who we are */}
+      {/* 5. About — who we are */}
       <AboutSection />
 
-      {/* 9. CRM Gallery — live screenshots */}
+      {/* 6. CRM Gallery — live screenshots */}
       <CrmGallerySection />
 
-      {/* 10. Partners — instant social proof */}
+      {/* 7. Partners — instant social proof */}
       <Clients />
 
-      {/* 11. Testimonials — what others say */}
+      {/* 8. Testimonials — what others say */}
       <TestimonialsSection />
 
-      {/* 12. Contact — final conversion */}
+      {/* 9. Contact — final conversion */}
       <ContactSection />
     </div>
   );

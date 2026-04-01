@@ -28,7 +28,7 @@ export function Footer() {
             <div className="flex gap-3 pt-2">
               {[
                 { icon: Instagram, href: "https://www.instagram.com/online.omuz/" },
-                { icon: Send, href: "https://t.me/omuztj" }
+                { icon: Send, href: "https://t.me/onlineomuztj" }
               ].map((social, i) => (
                 <Link key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white text-slate-500 dark:text-slate-400 transition-all">
                   <social.icon className="w-4 h-4" />
