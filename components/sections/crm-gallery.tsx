@@ -1,25 +1,14 @@
 "use client"
 
 import { useTranslations } from "next-intl"
-import Image from "next/image"
 import { motion } from "framer-motion"
+import { AnimatedAnalyticsDashboard } from "@/components/ui/animated-analytics-dashboard"
+import { AnimatedBranchesDashboard } from "@/components/ui/animated-branches-dashboard"
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
   show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100, damping: 20 } },
 }
-
-const STAGGER = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.15 } },
-}
-
-const screenshots = [
-  { src: "/omuz-crm-dashboard.jpg", key: "dashboard", span: "" },
-  { src: "/image.png", key: "dashboard_2", span: "" },
-  { src: "/crm-chart.png", key: "enroll", span: "md:col-span-1" },
-  { src: "/crm-branches.jpg", key: "graduates", span: "md:col-span-1" },
-]
 
 export function CrmGallerySection() {
   const t = useTranslations("crm_gallery")
@@ -55,42 +44,36 @@ export function CrmGallerySection() {
           </p>
         </motion.div>
 
-        {/* Gallery Grid */}
-        <motion.div
-          variants={STAGGER}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6"
-        >
-          {screenshots.map((shot) => (
+        {/* Interactive Animated Dashboards */}
+        <div className="flex flex-col gap-8 lg:gap-12 mt-12 w-full">
             <motion.div
-              key={shot.key}
-              variants={FADE_UP}
-              whileHover={{ y: -8, scale: 1.01 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`${shot.span} group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 transition-shadow duration-500`}
+                variants={FADE_UP}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+                className="w-full relative group"
             >
-              <div className="aspect-[4/3] relative overflow-hidden">
-                <Image
-                  src={shot.src}
-                  alt={t(`${shot.key}.title`)}
-                  fill
-                  className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                {/* Label on hover */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t(`${shot.key}.title`)}</h3>
-                  <p className="text-sm text-slate-300 font-light">{t(`${shot.key}.desc`)}</p>
+                {/* Decorative glow behind component */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-sky-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10 w-full transition-transform duration-500">
+                    <AnimatedAnalyticsDashboard />
                 </div>
-              </div>
-              {/* Glow ring */}
-              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-purple-500/30 transition-all duration-500 pointer-events-none" />
             </motion.div>
-          ))}
-        </motion.div>
+
+            <motion.div
+                variants={FADE_UP}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+                className="w-full relative group"
+            >
+                {/* Decorative glow behind component */}
+                <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-orange-500/10 to-emerald-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="relative z-10 w-full transition-transform duration-500">
+                    <AnimatedBranchesDashboard />
+                </div>
+            </motion.div>
+        </div>
       </div>
     </section>
   )

@@ -9,6 +9,8 @@ import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { cn } from "@/lib/utils";
+import { AnimatedAnalyticsDashboard } from "@/components/ui/animated-analytics-dashboard";
+import { AnimatedBranchesDashboard } from "@/components/ui/animated-branches-dashboard";
 
 const FADE_UP: Variants = {
     hidden: { opacity: 0, y: 30 },
@@ -343,112 +345,36 @@ export default function CrmProductPage({
                         <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 font-light">{t('gallery_subtitle')}</p>
                     </motion.div>
 
-                    {/* Bento Grid Gallery */}
-                    <motion.div
-                        variants={STAGGER}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, margin: "-100px" }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-6"
-                    >
-                        {/* Screenshot 1 — Dashboard (half width) */}
+                    {/* Interactive Animated Dashboards */}
+                    <div className="flex flex-col gap-8 lg:gap-12 mt-12 w-full">
                         <motion.div
                             variants={FADE_UP}
-                            whileHover={{ y: -8, scale: 1.01 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 transition-shadow duration-500"
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, margin: "-100px" }}
+                            className="w-full relative group"
                         >
-                            <div className="aspect-[4/3] relative overflow-hidden">
-                                <Image
-                                    src="/crm-dashboard.png"
-                                    alt={t('gallery_dashboard')}
-                                    fill
-                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                                />
-                                {/* Gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                {/* Label on hover */}
-                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_dashboard')}</h3>
-                                    <p className="text-sm text-slate-300 font-light">{t('gallery_dashboard_desc')}</p>
-                                </div>
+                            {/* Decorative glow behind component */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-sky-500/10 to-purple-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative z-10 w-full transition-transform duration-500">
+                                <AnimatedAnalyticsDashboard />
                             </div>
-                            {/* Glow ring */}
-                            {/* Glow ring */}
-                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-purple-500/30 transition-all duration-500 pointer-events-none" />
                         </motion.div>
 
-                        {/* Screenshot 2 — Dashboard 2 (half width) */}
                         <motion.div
                             variants={FADE_UP}
-                            whileHover={{ y: -8, scale: 1.01 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 transition-shadow duration-500"
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, margin: "-100px" }}
+                            className="w-full relative group"
                         >
-                            <div className="aspect-[4/3] relative overflow-hidden">
-                                <Image
-                                    src="/crm-dashboard.png"
-                                    alt={t('gallery_dashboard')}
-                                    fill
-                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_dashboard')} 2</h3>
-                                    <p className="text-sm text-slate-300 font-light">{t('gallery_dashboard_desc')}</p>
-                                </div>
+                            {/* Decorative glow behind component */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 via-orange-500/10 to-emerald-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            <div className="relative z-10 w-full transition-transform duration-500">
+                                <AnimatedBranchesDashboard />
                             </div>
-                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-purple-500/30 transition-all duration-500 pointer-events-none" />
                         </motion.div>
-
-                        {/* Screenshot 3 — Branches Chart (full width, horizontal) */}
-                        <motion.div
-                            variants={FADE_UP}
-                            whileHover={{ y: -8, scale: 1.01 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="md:col-span-2 group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-500/20 transition-shadow duration-500"
-                        >
-                            <div className="aspect-[21/9] relative overflow-hidden">
-                                <Image
-                                    src="/crm-chart.png"
-                                    alt={t('gallery_branches_chart')}
-                                    fill
-                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_groups')}</h3>
-                                    <p className="text-sm text-slate-300 font-light">{t('gallery_groups_desc')}</p>
-                                </div>
-                            </div>
-                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-sky-500/30 transition-all duration-500 pointer-events-none" />
-                        </motion.div>
-
-
-
-                        {/* Screenshot 4 — Branches Detail (full width, horizontal) */}
-                        <motion.div
-                            variants={FADE_UP}
-                            whileHover={{ y: -8, scale: 1.01 }}
-                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            className="md:col-span-2 group relative rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/50 shadow-lg hover:shadow-2xl hover:shadow-orange-500/10 dark:hover:shadow-orange-500/20 transition-shadow duration-500"
-                        >
-                            <div className="aspect-[21/9] relative overflow-hidden">
-                                <Image
-                                    src="/crm-branches.jpg"
-                                    alt={t('gallery_branches')}
-                                    fill
-                                    className="object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                                    <h3 className="text-lg sm:text-xl font-bold text-white mb-1">{t('gallery_branches')}</h3>
-                                    <p className="text-sm text-slate-300 font-light">{t('gallery_branches_desc')}</p>
-                                </div>
-                            </div>
-                            <div className="absolute inset-0 rounded-2xl sm:rounded-3xl ring-1 ring-inset ring-white/10 group-hover:ring-orange-500/30 transition-all duration-500 pointer-events-none" />
-                        </motion.div>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
