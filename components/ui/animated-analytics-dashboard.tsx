@@ -17,7 +17,7 @@ const enrollData = [
   { month: "Mar", value: 35 },
   { month: "Apr", value: 25 },
   { month: "May", value: 38 },
-  { month: "Jun2", value: 20 },
+  { month: "Jun", value: 20 },
   { month: "Jul", value: 45 },
   { month: "Aug", value: 30 },
   { month: "Sep", value: 15 },

@@ -68,9 +68,9 @@ const CustomSelect = ({ value, onChange }: { value: ScoreValue, onChange: (v: Sc
     <div className={`relative inline-block text-left ${open ? 'z-50' : 'z-10'}`}>
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1 px-1.5 py-1 text-xs font-semibold text-slate-700 bg-transparent hover:bg-slate-100 rounded transition-colors"
+        className="flex items-center gap-1.5 px-2 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 bg-transparent hover:bg-slate-100 dark:bg-[#151d30] dark:hover:bg-[#1a233a] border border-transparent dark:border-slate-700/50 rounded-md transition-colors w-[46px] justify-between"
       >
-        {value} <ChevronDown className="w-3 h-3 text-slate-400" />
+        {value} <ChevronDown className="w-3.5 h-3.5 text-slate-400 dark:text-slate-400" />
       </button>
 
       <AnimatePresence>
@@ -80,7 +80,7 @@ const CustomSelect = ({ value, onChange }: { value: ScoreValue, onChange: (v: Sc
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -5 }}
             transition={{ duration: 0.15 }}
-            className="absolute left-0 top-full mt-1 w-12 bg-white rounded-md shadow-xl border border-slate-100 py-1 z-50 flex flex-col items-center"
+            className="absolute left-0 top-full mt-1 w-12 bg-white dark:bg-slate-800 rounded-md shadow-xl border border-slate-100 dark:border-slate-700 py-1 z-50 flex flex-col items-center"
           >
             {options.map((opt) => (
               <button
@@ -89,7 +89,7 @@ const CustomSelect = ({ value, onChange }: { value: ScoreValue, onChange: (v: Sc
                   onChange(opt);
                   setOpen(false);
                 }}
-                className={`w-full text-center py-1 text-xs font-medium hover:bg-slate-50 transition-colors ${value === opt ? 'text-primary bg-primary/5' : 'text-slate-600'}`}
+                className={`w-full text-center py-1 text-xs font-medium hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors ${value === opt ? 'text-primary bg-primary/5 dark:bg-primary/20 dark:text-purple-400' : 'text-slate-600 dark:text-slate-300'}`}
               >
                 {opt}
               </button>
@@ -114,9 +114,9 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
   }>({ isOpen: false, text: "", lateMinutes: "0", studentIndex: null, dayIndex: null });
 
   const getSumColor = (sum: number) => {
-    if (sum >= 90) return "bg-green-100 text-green-700";
-    if (sum >= 80) return "bg-amber-100 text-amber-700";
-    return "bg-red-100 text-red-700";
+    if (sum >= 90) return "bg-green-100 dark:bg-[#1a382d] text-green-700 dark:text-[#4ade80]";
+    if (sum >= 80) return "bg-amber-100 dark:bg-[#38331a] text-amber-700 dark:text-[#facc15]";
+    return "bg-red-100 dark:bg-[#381c1a] text-red-700 dark:text-[#f87171]";
   };
 
   const closeCommentModal = () => {
@@ -193,17 +193,17 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
     <motion.div
       layout
       transition={{ duration: 0.3 }}
-      className="w-full bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden border border-slate-100/50"
+      className="w-full bg-white dark:bg-[#0B1121] rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-2xl overflow-hidden border border-slate-100/50 dark:border-slate-800/80"
     >
       <button
         onClick={toggleWeek}
-        className={`w-full flex items-center justify-between px-6 py-5 ${week.isOpen ? 'border-b border-slate-50' : ''}`}
+        className={`w-full flex items-center justify-between px-6 py-5 ${week.isOpen ? 'border-b border-slate-50 dark:border-slate-800/50' : ''}`}
       >
-        <h3 className="text-[17px] font-bold text-slate-900">Week {week.weekNum}</h3>
+        <h3 className="text-[17px] font-bold text-slate-900 dark:text-white">Week {week.weekNum}</h3>
         {week.isOpen ? (
-          <ChevronUp className="w-5 h-5 text-slate-400" />
+          <ChevronUp className="w-5 h-5 text-slate-400 dark:text-slate-500" />
         ) : (
-          <ChevronDown className="w-5 h-5 text-slate-400" />
+          <ChevronDown className="w-5 h-5 text-slate-400 dark:text-slate-500" />
         )}
       </button>
 
@@ -218,66 +218,70 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
           >
             <div className="min-w-[900px]">
               {/* Header Row */}
-              <div className="flex border-b border-slate-100 pb-2 mb-2">
-                <div className="w-[180px] shrink-0 text-xs font-bold text-slate-700">Students</div>
+              <div className="flex border-b border-slate-100 dark:border-slate-800/80 mb-0">
+                <div className="w-[180px] shrink-0 text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-widest pl-4 flex items-center border-r border-transparent dark:border-slate-800/80">STUDENTS</div>
                 {students[0]?.days.map((day, i) => (
-                  <div key={i} className="flex-1 flex flex-col items-center border-l border-slate-50">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 mb-2">
+                  <div key={i} className="flex-1 flex flex-col items-center border-l border-slate-50 dark:border-slate-800/80">
+                    <div className="flex w-full items-center justify-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 py-4 border-b border-slate-50 dark:border-slate-800/80">
                       {day.date}
                       <Edit2 className="w-3 h-3 text-[#5142E6] cursor-pointer" />
                     </div>
-                    <div className="flex w-full text-[10px] font-bold text-slate-400">
-                      <div className="flex-1 text-center font-medium">Att</div>
+                    <div className="flex w-full text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-widest py-3">
+                      <div className="flex-1 text-center font-medium border-r border-slate-50 dark:border-slate-800/80">Att</div>
                       <div className="flex-1 text-center font-medium">Score</div>
                     </div>
                   </div>
                 ))}
-                <div className="w-[180px] shrink-0 flex flex-col items-center border-l border-slate-50">
-                  <div className="text-xs font-bold text-slate-700 mb-2">End of week</div>
-                  <div className="flex w-full text-[10px] font-bold text-slate-400">
-                    <div className="flex-1 text-center font-medium">Att</div>
-                    <div className="flex-1 text-center font-medium">Bonus</div>
-                    <div className="flex-1 text-center font-medium">Exam</div>
+                <div className="w-[180px] shrink-0 flex flex-col items-center border-l border-slate-50 dark:border-slate-800/80">
+                  <div className="w-full text-center text-xs font-bold text-slate-700 dark:text-slate-200 py-4 border-b border-slate-50 dark:border-slate-800/80 uppercase tracking-widest">End of week</div>
+                  <div className="flex w-full text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-widest py-3">
+                    <div className="flex-1 text-center font-medium border-r border-slate-50 dark:border-slate-800/80">Att</div>
+                    <div className="flex-1 text-center font-medium border-r border-slate-50 dark:border-slate-800/80">Bonus</div>
+                    <div className="flex-1 text-center font-medium border-r border-slate-50 dark:border-slate-800/80">Exam</div>
                     <div className="flex-1 text-center font-medium">Sum</div>
                   </div>
                 </div>
               </div>
 
               {/* Student Rows */}
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col">
                 {students.map((student, sIndex) => (
                   <motion.div
                     key={student.id}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + sIndex * 0.05 }}
-                    className="flex items-center hover:bg-slate-50 rounded-lg py-2 transition-colors cursor-default"
+                    className="flex w-full items-stretch border-b border-slate-50 dark:border-slate-800/80 last:border-0 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors cursor-default"
                   >
-                    <div className="w-[180px] shrink-0 text-[13px] font-semibold text-slate-600 pl-1">
+                    <div className="w-[180px] shrink-0 flex items-center text-[13px] font-medium text-slate-600 dark:text-slate-200 pl-4 py-3 border-r border-transparent dark:border-slate-800/80">
                       {sIndex + 1}. {student.name}
                     </div>
 
                     {student.days.map((day, dIndex) => (
-                      <div key={dIndex} className="flex-1 flex items-center justify-center border-l border-transparent">
-                        <div className="flex-1 flex justify-center items-center gap-1.5 relative">
+                      <div key={dIndex} className="flex-1 flex items-stretch border-l border-transparent dark:border-slate-800/80">
+                        <div className="flex-1 flex justify-center items-center gap-1.5 relative border-r border-transparent dark:border-slate-800/80 py-2.5">
                           <button
                             onClick={() => openCommentModal(sIndex, dIndex, day)}
-                            className={`transition-colors ${day.hasMessage ? 'text-[#5142E6]' : 'text-slate-300 hover:text-[#5142E6]'}`}
+                            className={`transition-colors ${day.hasMessage ? 'text-[#818cf8]' : 'text-slate-300 dark:text-slate-500 hover:text-[#818cf8]'}`}
                           >
-                             <MessageSquare className={`w-4 h-4 ${day.hasMessage ? 'fill-[#5142E6]/20' : ''}`} />
+                             <MessageSquare className={`w-4 h-4 ${day.hasMessage ? 'fill-[#818cf8]/20' : ''}`} />
                           </button>
                           <button
                             onClick={() => toggleAttendance(sIndex, dIndex)}
-                            className="text-slate-300 hover:text-[#5142E6] transition-colors"
+                            className="transition-colors"
                           >
                             {day.attendance === "present" ? (
-                              <CheckSquare className="w-4 h-4 text-[#5142E6]" />
+                              <div className="w-[16px] h-[16px] rounded bg-[#0ea5e9] flex items-center justify-center">
+                                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                   <path d="M10 3L4.5 8.5L2 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              </div>
                             ) : (
-                              <Square className="w-4 h-4" />
+                               <div className="w-[16px] h-[16px] rounded border border-slate-300 dark:border-slate-600 flex items-center justify-center"></div>
                             )}
                           </button>
                         </div>
-                        <div className="flex-1 flex justify-center items-center">
+                        <div className="flex-1 flex justify-center items-center py-2.5">
                           <CustomSelect
                             value={day.score}
                             onChange={(val) => updateScore(sIndex, dIndex, val)}
@@ -286,12 +290,12 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
                       </div>
                     ))}
 
-                    <div className="w-[180px] shrink-0 flex items-center justify-center border-l border-transparent pl-2">
-                      <div className="flex-1 text-center text-xs font-semibold text-slate-500">{student.endOfWeek.att}</div>
-                      <div className="flex-1 text-center text-xs font-semibold text-slate-500">{student.endOfWeek.bonus}</div>
-                      <div className="flex-1 text-center text-xs font-semibold text-slate-500">{student.endOfWeek.exam}</div>
-                      <div className="flex-1 flex justify-center">
-                        <div className={`${getSumColor(student.endOfWeek.sum)} text-[11px] font-extrabold px-2.5 py-0.5 rounded-full shadow-sm min-w-[28px] text-center`}>
+                    <div className="w-[180px] shrink-0 flex items-stretch border-l border-transparent dark:border-slate-800/80">
+                      <div className="flex-1 flex items-center justify-center text-[13px] font-semibold text-slate-500 dark:text-slate-300 border-r border-transparent dark:border-slate-800/80 py-2">{student.endOfWeek.att}</div>
+                      <div className="flex-1 flex items-center justify-center text-[13px] font-semibold text-slate-500 dark:text-slate-300 border-r border-transparent dark:border-slate-800/80 py-2">0_</div>
+                      <div className="flex-1 flex items-center justify-center text-[13px] font-semibold text-slate-500 dark:text-slate-300 border-r border-transparent dark:border-slate-800/80 py-2">{student.endOfWeek.exam}</div>
+                      <div className="flex-1 flex items-center justify-center py-2">
+                        <div className={`${getSumColor(student.endOfWeek.sum)} text-[12px] font-bold px-3 py-0.5 rounded-full shadow-sm min-w-[34px] text-center`}>
                           {student.endOfWeek.sum}
                         </div>
                       </div>
@@ -311,20 +315,20 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-2xl shadow-2xl p-6 w-full max-w-lg"
+              className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl p-6 w-full max-w-lg border border-transparent dark:border-slate-800"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-slate-900">Comment Student</h3>
-                <button onClick={closeCommentModal} className="text-slate-400 hover:text-slate-600 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Comment Student</h3>
+                <button onClick={closeCommentModal} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
               <div className="relative mt-2">
-                <label className="absolute -top-2 left-3 bg-white px-1.5 text-xs font-semibold text-slate-400">Reason</label>
+                <label className="absolute -top-2 left-3 bg-white dark:bg-slate-900 px-1.5 text-xs font-semibold text-slate-400 dark:text-slate-500">Reason</label>
                 <textarea
-                  className="w-full border border-slate-300 rounded-xl p-4 text-[15px] font-medium text-slate-900 focus:outline-none focus:border-slate-400 min-h-[110px] resize-none leading-relaxed"
+                  className="w-full border border-slate-300 dark:border-slate-700 bg-transparent rounded-xl p-4 text-[15px] font-medium text-slate-900 dark:text-slate-100 focus:outline-none focus:border-slate-400 dark:focus:border-slate-500 min-h-[110px] resize-none leading-relaxed"
                   autoFocus
                   placeholder="Эзоҳро инҷо нависед..."
                   value={commentModalData.text}
@@ -339,10 +343,10 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
               </div>
 
               <div className="relative mt-6">
-                <label className="absolute -top-2 left-3 bg-white px-1.5 text-xs font-semibold text-slate-400">Late Minutes</label>
+                <label className="absolute -top-2 left-3 bg-white dark:bg-slate-900 px-1.5 text-xs font-semibold text-slate-400 dark:text-slate-500">Late Minutes</label>
                 <input
                   type="text"
-                  className="w-full border border-slate-300 rounded-xl p-4 text-[15px] font-medium text-slate-900 focus:outline-none focus:border-slate-400"
+                  className="w-full border border-slate-300 dark:border-slate-700 bg-transparent rounded-xl p-4 text-[15px] font-medium text-slate-900 dark:text-slate-100 focus:outline-none focus:border-slate-400 dark:focus:border-slate-500"
                   value={commentModalData.lateMinutes}
                   onChange={(e) => setCommentModalData({ ...commentModalData, lateMinutes: e.target.value.replace(/[^0-9]/g, '') })}
                   onKeyDown={(e) => {
@@ -363,7 +367,7 @@ const GradebookWeek = ({ week, toggleWeek }: { week: WeekData; toggleWeek: () =>
                 </button>
                 <button
                   onClick={closeCommentModal}
-                  className="px-7 py-2.5 text-[15px] font-semibold text-[#5142E6] border border-[#5142E6]/20 bg-white hover:bg-slate-50 rounded-xl transition-colors"
+                  className="px-7 py-2.5 text-[15px] font-semibold text-[#5142E6] border border-[#5142E6]/20 bg-white dark:bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl transition-colors"
                 >
                   Cancel
                 </button>

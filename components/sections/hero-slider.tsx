@@ -84,7 +84,7 @@ export function HeroSlider() {
             {/* First Dashboard Component */}
             <div className="relative w-full flex justify-center">
               <div className="absolute inset-0 bg-primary/20 rounded-[3rem] blur-[80px] pointer-events-none max-w-5xl mx-auto" />
-              <AnimatedDemoPage />
+              <AnimatedDashboard />
             </div>
 
             {/* Second Dashboard Component (Interactive Gradebook) */}
